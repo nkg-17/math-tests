@@ -1,4 +1,5 @@
 
+**[Архив Задач](https://github.com/nkg-17/math-tests-archive)**
 
 <details>
 <summary><h2>Формат Задачи</h2></summary>
@@ -22,6 +23,7 @@
     "answer": ""
 }
 ```
+- `*.text` - Использует синтаксис Markdown и содержит escape-коды.
 
 **description.json 1.0**
 ```json
