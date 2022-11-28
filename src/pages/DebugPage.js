@@ -1,11 +1,11 @@
 import { useState, useMemo, useEffect } from 'react';
 
-import Test from '../api/Test';
+import { Test, verifyTest } from '../types/Test';
 
 
 function DebugPage(props) {
 	const [ test, setTest ] = useState(() => new Test());
-	const verification = useMemo(() => test.verify(), [test]);
+	const verification = useMemo(() => verifyTest(test), [test]);
 
 	useEffect(() => {
 		setTest(new Test());

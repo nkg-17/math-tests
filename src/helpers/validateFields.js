@@ -7,3 +7,7 @@ export function isEqualType(a, b) {
 export function isNotNull(a) {
 	return a !== undefined && a !== null;
 }
+
+export function stringIsNullOrEmpty(str) {
+    return str === null || str.match(/^ *$/) !== null;
+}
