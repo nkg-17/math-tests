@@ -1,5 +1,6 @@
 
 const RoutePaths = {
+	All: "*",
 	Home: "/",
 	Debug: "/debug"
 }

@@ -1,23 +1,24 @@
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 
-import RoutePaths from './constants/routePaths';
-
-import HomePage from './pages/HomePage';
-import DebugPage from './pages/DebugPage';
+import Pages from './components/Pages';
+import Header from './components/Header';
+import SideMenu from './components/SideMenu';
 
 
 function App() {
 	return (
 		<div className="App">
-			<Router basename={process.env.PUBLIC_URL}>
-					<Routes>
-						<Route exact path={RoutePaths.Home} element={ <HomePage /> } />
-						<Route exact path={RoutePaths.Debug} element={ <DebugPage /> } />
-						<Route path={RoutePaths.ALL} element={ <Navigate to={RoutePaths.Home} /> } />
-	 				</Routes>
-			</Router>
+			<Row className="vw-100 g-0">
+				<Col className="col-auto">
+					<SideMenu />
+				</Col>
+				<Col>
+					<Header />
+					<Pages />
+				</Col>
+			</Row>
 		</div>
 	);
 }
