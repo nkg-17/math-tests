@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/math-tests/static/css/main.b6d8d662.css",
+    "main.js": "/math-tests/static/js/main.d1b4f39e.js",
+    "static/media/bootstrap-icons.woff?": "/math-tests/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/math-tests/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "index.html": "/math-tests/index.html",
+    "main.b6d8d662.css.map": "/math-tests/static/css/main.b6d8d662.css.map",
+    "main.d1b4f39e.js.map": "/math-tests/static/js/main.d1b4f39e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6d8d662.css",
+    "static/js/main.d1b4f39e.js"
+  ]
+}

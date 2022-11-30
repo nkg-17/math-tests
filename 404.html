@@ -1,0 +1,33 @@
+
+<!--
+	This HTML is opened when user tries to access nonexistent pages.
+	
+	This is a workaround for react-router and page refresh 
+	because GitHub can not evaluate "imaginary" URL path made by react-router
+
+	For example refreshing the page here:
+		https://owner.github.io/repo/imaginary-path
+	would redirect to GitHub's default 404 error page.
+
+	So this "404.html", which is a custom 404 page for site hosted on GitHub pages, 
+	redirects user to the website's root (this means returning to the home page on every refresh).
+
+	Possible solutions:
+		https://gmfuster.medium.com/deploying-a-react-app-to-github-pages-24c3e5485589
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="refresh" content="0; url=https://nkg-17.github.io/math-tests" />
+		<title>Redirecting</title>
+
+	</head>
+	<body>
+
+		<p><a href="https://nkg-17.github.io/math-tests">Перейти на страницу</a></p>
+
+	</body>
+</html>
