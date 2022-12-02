@@ -1,6 +1,10 @@
 
 **[Архив Задач](https://github.com/nkg-17/math-tests-archive)**
 
+## Полезные ресурсы
+- [TailwindCSS Fundamentals](https://tailwindcss.com/docs/utility-first)
+
+
 <details>
 <summary><h2>Формат Задачи</h2></summary>
 
