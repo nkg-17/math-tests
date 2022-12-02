@@ -1,14 +1,12 @@
 import './Header.css';
 
-import { Container, Button } from 'react-bootstrap';
-
 
 function Header(props) {
 	return (
-		<Container fluid className="Header">
-			<div className="Header-Title">Стереометрия ЕГЭ</div>
-			<Button variant="light"><i className="bi bi-gear" /></Button>
-		</Container>
+		<div className="px-2 py-3 border h-fit text-center flex flex-row justify-between">
+			<div>Header</div>
+			<div>Settings</div>
+		</div>
 	);
 }
 

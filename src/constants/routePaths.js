@@ -1,8 +1,7 @@
 
 const RoutePaths = {
 	All: "*",
-	Home: "/",
-	Debug: "/debug"
+	Home: "/"
 }
 
 export default RoutePaths;
