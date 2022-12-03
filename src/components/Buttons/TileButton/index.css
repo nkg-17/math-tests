@@ -1,0 +1,5 @@
+
+
+.TileButton {
+	padding: var(--bs-btn-padding-x) var(--bs-btn-padding-x);
+}

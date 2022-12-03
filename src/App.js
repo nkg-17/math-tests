@@ -2,9 +2,9 @@ import './App.css';
 
 import { Row, Col } from 'react-bootstrap';
 
-import Pages from './components/Pages';
-import Header from './components/Header';
-import SideMenu from './components/SideMenu';
+import Pages from 'components/Pages';
+import Header from 'components/Header';
+import SideMenu from 'components/SideMenu';
 
 
 function App() {

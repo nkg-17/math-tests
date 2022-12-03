@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import RoutePaths from '../../constants/routePaths';
+import RoutePaths from 'constants/routePaths';
 
-import Catalog from '../../pages/Catalog';
+import Catalog from 'pages/Catalog';
 
 
 function Pages(props) {
