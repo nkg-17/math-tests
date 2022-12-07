@@ -1,14 +1,26 @@
-import './Catalog.css';
-
-import { Container } from 'react-bootstrap';
+import { Container, Stack, Form, Row, Col } from 'react-bootstrap';
 
 
 function Catalog(props) {
 	return (
 		<Container fluid>
-			<details>
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</details>
+			<Stack gap={2}>
+
+				<Row>
+					<Col className="col-auto d-flex flex-row justify-content-start">
+						<Form.Control placeholder="Search" />
+					</Col>
+				</Row>
+
+				<Row>
+					<Col>
+						<Container fluid className="border p-2" style={{ height: "35rem" }}>
+							Cards
+						</Container>
+					</Col>
+				</Row>
+
+			</Stack>
 		</Container>
 	);
 }

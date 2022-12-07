@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import RoutePaths from 'constants/routePaths';
-
 import Catalog from 'pages/Catalog';
 
+import RoutePaths from 'constants/routePaths';
 
-function Pages(props) {
+
+function PageRouter(props) {
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
 				<Routes>
@@ -16,4 +16,4 @@ function Pages(props) {
 	);
 }
 
-export default Pages;
+export default PageRouter;
