@@ -15,7 +15,7 @@ function Catalog(props) {
 		<CatalogContext.Provider value={contextValue}>
 			<Container fluid>
 				<Stack gap={3}>
-					<SearchBar onChange={() => {}} />
+					<SearchBar onChange={(text) => {}} />
 					<CardGrid />
 				</Stack>
 			</Container>

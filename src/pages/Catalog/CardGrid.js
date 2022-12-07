@@ -14,7 +14,7 @@ function CardGrid(props) {
 				{
 					context.testList.map((test) => {
 						return (
-							<Col lg={3}>
+							<Col lg={3} md={4} sm={6} xs={12} key={test}>
 								<TestCard test={test} />
 							</Col>
 						);
