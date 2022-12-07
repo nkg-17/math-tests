@@ -7,7 +7,6 @@ function SideMenu(props) {
 		<Container className="sticky-top m-0 p-0 border-end w-auto vh-100 d-flex flex-column justify-content-center">
 			<TileButton><i className="bi bi-dice-5" /></TileButton>
 			<TileButton><i className="bi bi-files" /></TileButton>
-			<TileButton><i className="bi bi-pencil-square" /></TileButton>
 			<TileButton><i className="bi bi-info-circle" /></TileButton>
 		</Container>
 	);

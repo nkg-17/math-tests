@@ -1,27 +1,25 @@
-import { Container, Stack, Form, Row, Col } from 'react-bootstrap';
+import { Container, Stack } from 'react-bootstrap';
+import SearchBar from 'components/SearchBar';
+import CardGrid from './CardGrid';
+
+import CatalogContext from 'contexts/CatalogContext';
 
 
 function Catalog(props) {
+	const contextValue = {
+		testList: [1, 2, 3, 4, 5, 6],
+		openTest: () => {}
+	};
+
 	return (
-		<Container fluid>
-			<Stack gap={2}>
-
-				<Row>
-					<Col className="col-auto d-flex flex-row justify-content-start">
-						<Form.Control placeholder="Search" />
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<Container fluid className="border p-2" style={{ height: "35rem" }}>
-							Cards
-						</Container>
-					</Col>
-				</Row>
-
-			</Stack>
-		</Container>
+		<CatalogContext.Provider value={contextValue}>
+			<Container fluid>
+				<Stack gap={3}>
+					<SearchBar onChange={() => {}} />
+					<CardGrid />
+				</Stack>
+			</Container>
+		</CatalogContext.Provider>
 	);
 }
 
