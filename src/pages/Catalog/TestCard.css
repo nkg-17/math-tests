@@ -1,0 +1,12 @@
+
+.TestCardTitle {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.TestCardText {
+	max-height: 10rem;
+	height: 10rem;
+
+	overflow: hidden;
+}

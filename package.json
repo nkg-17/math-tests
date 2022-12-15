@@ -4,6 +4,7 @@
 	"private": true,
 	"homepage": "https://nkg-17.github.io/math-tests",
 	"dependencies": {
+		"@faker-js/faker": "^7.6.0",
 		"bootstrap": "^5.2.3",
 		"bootstrap-icons": "^1.10.2",
 		"gh-pages": "^4.0.0",
