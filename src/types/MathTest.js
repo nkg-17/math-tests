@@ -49,7 +49,7 @@ export function verifyTest(test) {
 
 export function createRandomTest() {
 	return new MathTest({
-		id: faker.random.numeric(),
+		id: faker.datatype.number(),
 		title: faker.lorem.words(),
 		problem: { text: faker.lorem.paragraphs(5) },
 		solution: { text: faker.lorem.paragraphs(1) },

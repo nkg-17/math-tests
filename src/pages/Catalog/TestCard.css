@@ -2,11 +2,27 @@
 .TestCardTitle {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	word-break: keep-all;
 }
 
 .TestCardText {
-	max-height: 10rem;
-	height: 10rem;
+	--line-count: 4;
+	height: 	calc(calc(1.25rem * var(--line-count)) + 0.75rem);
+	max-height: calc(calc(1.25rem * var(--line-count)) + 0.75rem);
 
+	text-overflow: ellipsis;
 	overflow: hidden;
+
+	display: -webkit-box !important;
+	-webkit-line-clamp: var(--line-count);
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}
+
+.TestCardBackground {
+	background-image: 
+		linear-gradient(to bottom, rgba(0,0,0,0) 0, var(--bs-card-bg) 70%),
+		url('https://i.waifu.pics/1y5O6HN.jpg');
+	background-size: cover;
+	background-position: center;
 }

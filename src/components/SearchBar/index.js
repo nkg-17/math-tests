@@ -9,7 +9,7 @@ function SearchBar(props) {
 	}
 
 	return (
-		<Form.Control placeholder="Поиск" onChange={onChange} style={{ width: "18rem" }} />
+			<Form.Control placeholder="Поиск" onChange={onChange} {...props} />
 	);
 }
 
