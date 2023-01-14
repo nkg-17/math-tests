@@ -21,7 +21,7 @@ function Catalog(props) {
 				<Container className="g-0 pt-5">
 					<Stack gap={3}>
 						<Stack direction="horizontal" className="justify-content-center">
-							<SearchBar style={{width:"20rem"}} />
+							<SearchBar style={{width:"25rem"}} />
 						</Stack>
 						<CardGrid />
 					</Stack>

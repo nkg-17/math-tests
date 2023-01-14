@@ -1,4 +1,4 @@
-import { Form } from 'react-bootstrap';
+import { Form, InputGroup, /*Button*/ } from 'react-bootstrap';
 
 
 function SearchBar(props) {
@@ -9,7 +9,10 @@ function SearchBar(props) {
 	}
 
 	return (
-			<Form.Control placeholder="Поиск" onChange={onChange} {...props} />
+		<InputGroup {...props}>
+			{/*<Button variant="secondary"><i className="bi bi-funnel-fill" style={{color: "var(--bs-white)"}}/></Button>*/}
+			<Form.Control placeholder="Поиск" onChange={onChange} />
+		</InputGroup>
 	);
 }
 
