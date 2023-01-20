@@ -7,10 +7,10 @@ import RoutePaths from 'constants/routePaths';
 
 function PageRouter(props) {
 	return (
-		<Router>
+		<Router basename={import.meta.env.BASE_URL}>
 				<Routes>
 					<Route path={RoutePaths.Home} element={ <Catalog /> } />
-					{/*<Route path={RoutePaths.All} element={ <Navigate to={RoutePaths.Home} /> } />*/}
+					<Route path={RoutePaths.All} element={ <Navigate to={RoutePaths.Home} /> } />
  				</Routes>
 		</Router>
 	);
