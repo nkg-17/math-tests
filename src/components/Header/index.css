@@ -1,0 +1,30 @@
+
+.HeaderMain {
+	position: sticky;
+	top: 0;
+	z-index: 10001;
+	height: 3rem;
+
+	--bs-gutter-x: 0;
+	--bs-gutter-y: 0;
+
+	background-color: white;
+}
+
+.HeaderSecondary {
+	position: sticky;
+	top: 0;
+	z-index: 10000;
+	height: 3rem;
+
+	--bs-gutter-x: 0;
+	--bs-gutter-y: 0;
+	vertical-align: baseline;
+
+	background-color: white;
+	box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
+}
+
+.HeaderTitle {
+	margin: 0;
+}

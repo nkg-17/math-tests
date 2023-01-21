@@ -9,12 +9,12 @@ function CardGrid(props) {
 	const context = useContext(CatalogContext);
 
 	return (
-		<Container className="g-0">
+		<Container fluid className="g-0">
 			<Row className="gx-4 gy-3">
 				{
 					context.testList.map((test) => {
 						return (
-							<Col lg={4} md={6} sm={12} key={test.id}>
+							<Col className="col-12" key={test.id}>
 								<TestCard test={test} />
 							</Col>
 						);

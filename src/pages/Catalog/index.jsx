@@ -1,6 +1,6 @@
 import { createRandomTest } from 'types/MathTest';
 
-import { Container, Stack, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Stack, Row, Col } from 'react-bootstrap';
 
 import SearchBar from 'components/SearchBar';
 import Header from 'components/Header';
@@ -19,21 +19,24 @@ function Catalog(props) {
 
 	return (
 		<CatalogContext.Provider value={contextValue}>
-			<Container className="g-0">
-				<Stack gap={3}>
-					<div className="d-flex flex-row justify-content-center">
-						<SearchBar style={{width:"25rem"}} />
-					</div>
-					<Row className="g-3">
-						<Col className="col-auto">
-							<FilterPanel />
-						</Col>
-						<Col>
+
+			<Container fluid className="g-0">
+				<Row>
+					<Col lg={3} className="p-4 bg-secondary">
+						Filters
+					</Col>
+					<Col lg={9} className="p-4 bg-light">
+						<Stack gap={4}>
+							<Row><Col lg={4}>
+								<SearchBar />
+							</Col></Row>
 							<CardGrid />
-						</Col>
-					</Row>
-				</Stack>
+						</Stack>
+					</Col>
+				</Row>
+
 			</Container>
+
 		</CatalogContext.Provider>
 	);
 }

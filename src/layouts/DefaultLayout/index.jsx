@@ -1,16 +1,18 @@
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
+import { Stack } from 'react-bootstrap';
+
 
 function DefaultLayout(props) {
 	return (
-		<div className="vw-100">
+		<Stack>
 			<Header />
-			<main className="px-5 pt-5 pb-5">
+			<main>
 				{props.children}
 			</main>
 			<Footer />
-		</div>
+		</Stack>
 	);
 }
 
