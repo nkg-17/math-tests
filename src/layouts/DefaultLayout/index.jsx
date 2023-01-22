@@ -6,8 +6,7 @@ import { Stack } from 'react-bootstrap';
 
 function DefaultLayout(props) {
 	return (
-		<Stack>
-			<Header />
+		<Stack className="min-vh-100 justify-content-between">
 			<main>
 				{props.children}
 			</main>
