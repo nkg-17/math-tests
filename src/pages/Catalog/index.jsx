@@ -13,7 +13,7 @@ import CatalogContext from 'contexts/CatalogContext';
 
 function Catalog(props) {
 	const contextValue = {
-		testList: Array.from({length: 2}, (_, i) => createRandomTest()),
+		testList: Array.from({length: 1}, (_, i) => createRandomTest()),
 		openTest: () => {}
 	};
 

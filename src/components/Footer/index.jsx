@@ -3,10 +3,7 @@ import { Container, Stack } from 'react-bootstrap';
 
 function Footer(props) {
 	return (
-		<Container 
-		fluid 
-		className="p-5 bg-dark d-flex flex-row justify-content-center"
-		>
+		<Container fluid className="p-5 bg-dark d-flex flex-row justify-content-center">
 			<Stack direction="horizontal" gap={3}>
 				<a 
 				href={import.meta.env.VITE_URL_REPO} 
