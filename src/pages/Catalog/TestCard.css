@@ -1,12 +1,6 @@
 
 .TestCard {
 	pointer-events: auto;
-	cursor: pointer;
-}
-
-.TestCard:hover {
-	box-shadow: 0px 0px 1rem rgba(0,0,0,0.1);
-	scale: 1.005;
 }
 
 .TestCardTitle {
@@ -26,20 +20,4 @@
 	-webkit-line-clamp: var(--line-count);
 	-webkit-box-orient: vertical;
 	white-space: normal;
-}
-
-.TestCardImgBounds {
-/*	position: absolute;*/
-/*	top: 0;*/
-	height: 9rem;
-	overflow: hidden;
-}
-
-.TestCardImg {
-/*	width: 500px;*/
-	position: relative;
-	top: 50%;
-/*	left: 50%;*/
-	transform: translateY(-50%);
-/*	transform: translate(-50%, -50%);*/
 }

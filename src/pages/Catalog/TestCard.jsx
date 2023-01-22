@@ -21,10 +21,6 @@ function TestCard(props) {
 
 	return (
 		<Card className="TestCard overflow-hidden">
-			<div className="TestCardImgBounds g-0">
-				{ pic && <Card.Img className="TestCardImg" src={pic} />}
-			</div>
-
 			<Card.Body>
 				<Card.Title className="TestCardTitle text-start text-nowrap">{props.test.title}</Card.Title>
 				<Card.Text className="TestCardText text-start ">{props.test.problem.text}</Card.Text>
