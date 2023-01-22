@@ -1,5 +1,13 @@
 
-.HeaderMain {
+/*
+	height: 3rem;
+	padding-left: 5rem;
+	display: flex;
+	align-items: center;
+*/
+
+
+.Header {
 	position: sticky;
 	top: 0;
 	z-index: 10001;
@@ -8,10 +16,14 @@
 	--bs-gutter-x: 0;
 	--bs-gutter-y: 0;
 
-	background-color: white;
+	padding-left: 5rem;
+	display: flex;
+	align-items: center;
+
+	background-color: var(--bs-light);
 }
 
-.HeaderSecondary {
+.HeaderNav {
 	position: sticky;
 	top: 0;
 	z-index: 10000;
@@ -19,12 +31,58 @@
 
 	--bs-gutter-x: 0;
 	--bs-gutter-y: 0;
-	vertical-align: baseline;
 
-	background-color: white;
+	padding-left: 4rem;
+	display: flex;
+	flex-direction: row;
+	gap: 0;
+	align-items: center;
+
+	background-color: var(--bs-light);
 	box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
+}
+
+.HeaderLink {
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+
+	pointer-events: auto;
+	cursor: pointer;
+
+	color: var(--bs-dark);
 }
 
 .HeaderTitle {
 	margin: 0;
+
+	font-weight: 700;
+	font-family: -apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+}
+
+.HeaderBrand {
+	height: 1.7rem;
+}
+
+.HeaderNavItem {
+	height: 100%;
+
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+
+	pointer-events: auto;
+	cursor: pointer;
+
+	font-weight: 300;
+
+	color: var(--bs-dark);
+	background-color: var(--bs-light);
+}
+
+.HeaderNavItem:hover {
+	color: var(--bs-secondary);
 }

@@ -7,7 +7,7 @@ import { Stack } from 'react-bootstrap';
 function DefaultLayout(props) {
 	return (
 		<Stack className="min-vh-100 justify-content-between">
-			<main>
+			<main style={{flex:"1"}}>
 				{props.children}
 			</main>
 			<Footer />

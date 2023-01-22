@@ -6,15 +6,22 @@ import './index.css';
 function Header(props) {
 	return (
 		<>
-			<Container fluid className="HeaderMain">
-				<h4 className="HeaderTitle">Стереометрия ЕГЭ</h4>
+			<Container fluid className="Header">
+				<div className="HeaderLink">
+					<img className="HeaderBrand" src="/brand.svg" alt="Brand" />
+					<h4 className="HeaderTitle">Стереометрия ЕГЭ</h4>
+				</div>
 			</Container>
+
 			{
 				(!props.minimized) ? (
-					<Container fluid className="HeaderSecondary">
-						Nav
+					<Container fluid className="HeaderNav">
+						<div className="HeaderNavItem">Каталог</div>
+						<div className="HeaderNavItem">Справка</div>
 					</Container>
-				) : (<></>)
+				) : (
+					<></>
+				)
 			}
 		</>
 	);
