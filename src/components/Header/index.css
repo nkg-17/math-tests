@@ -20,7 +20,8 @@
 	display: flex;
 	align-items: center;
 
-	background-color: var(--bs-light);
+	background-color: white;
+/*	background-color: var(--bs-light);*/
 }
 
 .HeaderNav {
@@ -38,7 +39,8 @@
 	gap: 0;
 	align-items: center;
 
-	background-color: var(--bs-light);
+	background-color: white;
+/*	background-color: var(--bs-light);*/
 	box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
 }
 
@@ -80,7 +82,8 @@
 	font-weight: 300;
 
 	color: var(--bs-dark);
-	background-color: var(--bs-light);
+	background-color: white;
+/*	background-color: var(--bs-light);*/
 }
 
 .HeaderNavItem:hover {

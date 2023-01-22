@@ -1,4 +1,14 @@
 
+.TestCard {
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.TestCard:hover {
+	box-shadow: 0px 0px 1rem rgba(0,0,0,0.1);
+	scale: 1.005;
+}
+
 .TestCardTitle {
 	overflow: hidden;
 	text-overflow: ellipsis;

@@ -20,7 +20,7 @@ function TestCard(props) {
 	}, [])
 
 	return (
-		<Card className="user-select-none overflow-hidden">
+		<Card className="TestCard overflow-hidden">
 			<div className="TestCardImgBounds g-0">
 				{ pic && <Card.Img className="TestCardImg" src={pic} />}
 			</div>

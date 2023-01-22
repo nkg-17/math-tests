@@ -13,7 +13,7 @@ import CatalogContext from 'contexts/CatalogContext';
 
 function Catalog(props) {
 	const contextValue = {
-		testList: Array.from({length: 1}, (_, i) => createRandomTest()),
+		testList: Array.from({length: 3}, (_, i) => createRandomTest()),
 		openTest: () => {}
 	};
 
@@ -24,7 +24,7 @@ function Catalog(props) {
 			<CatalogContext.Provider value={contextValue}>
 				<Container fluid>
 					<Row>
-						<Col lg={3} className="p-4 bg-secondary">
+						<Col lg={3} className="p-4 bg-light">
 							Filters
 						</Col>
 						<Col lg={9} className="p-4 bg-light">
