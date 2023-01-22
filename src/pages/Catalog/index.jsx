@@ -6,7 +6,7 @@ import SearchBar from 'components/SearchBar';
 import Header from 'components/Header';
 
 import CardGrid from './CardGrid';
-import FilterPanel from './FilterPanel';
+import FiltersPanel from './FiltersPanel';
 
 import CatalogContext from 'contexts/CatalogContext';
 
@@ -25,7 +25,7 @@ function Catalog(props) {
 				<Container fluid>
 					<Row>
 						<Col lg={3} className="p-4 bg-light">
-							Filters
+							<FiltersPanel />
 						</Col>
 						<Col lg={9} className="p-4 bg-light">
 							<Stack gap={4}>
