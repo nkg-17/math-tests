@@ -22,19 +22,22 @@ function Catalog(props) {
 			<Header />
 
 			<CatalogContext.Provider value={contextValue}>
-				<Container fluid>
-					<Row>
-						<Col lg={3} className="p-4 bg-light">
+				<Container className="">
+					<Row className="py-4 px-5 g-4">
+						{/* #FIXME */}
+						<Col lg={1}></Col>
+						<Col lg={3}>
 							<FiltersPanel />
 						</Col>
-						<Col lg={9} className="p-4 bg-light">
+						<Col lg={7}>
 							<Stack gap={4}>
-								<Row><Col lg={4}>
+								<Row><Col lg={6}>
 									<SearchBar />
 								</Col></Row>
 								<CardGrid />
 							</Stack>
 						</Col>
+						<Col lg={1}></Col>
 					</Row>
 				</Container>
 			</CatalogContext.Provider>

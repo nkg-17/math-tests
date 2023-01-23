@@ -1,7 +1,7 @@
 import './TestCard.css';
 
 import { useState, useEffect } from 'react';
-import { Card, Stack, Badge } from 'react-bootstrap';
+import { Card, Stack, Badge, Button } from 'react-bootstrap';
 
 
 function TestCard(props) {
@@ -22,15 +22,22 @@ function TestCard(props) {
 	return (
 		<Card className="TestCard overflow-hidden">
 			<Card.Body>
-				<Card.Title className="TestCardTitle text-start text-nowrap">{props.test.title}</Card.Title>
+				<Card.Title className="TestCardTitle text-start d-flex align-items-center justify-content-between">
+					<span>
+						<span>{props.test.title}</span>
+						{/*<span className="ms-2 text-muted fw-light" style={{fontSize:"14px"}}>#{props.test.id}</span>*/}
+					</span>
+				</Card.Title>
 				<Card.Text className="TestCardText text-start ">{props.test.problem.text}</Card.Text>
-				<hr />
-				<Stack direction="horizontal" gap={1}>
-					<Badge bg="secondary">#tag</Badge>
-					<Badge bg="secondary">#tag</Badge>
-					<Badge bg="secondary">#tag</Badge>
+				
+				{/*<Stack direction="horizontal" gap={1}>
+					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
+					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
+					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
 				</Stack>
-			</Card.Body>			
+
+				<hr />*/}
+			</Card.Body>
 		</Card>
 	);
 }
