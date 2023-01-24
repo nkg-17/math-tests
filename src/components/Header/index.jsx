@@ -16,7 +16,7 @@ function Header(props) {
 
 			{
 				(!props.minimized) ? (
-					<Container fluid className="HeaderNav">
+					<Container fluid className="HeaderNav justify-content-center">
 						<div className="HeaderNavItem">Каталог</div>
 						<div className="HeaderNavItem">Справка</div>
 					</Container>
