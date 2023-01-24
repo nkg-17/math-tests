@@ -1,20 +1,52 @@
 
 .TestCard {
+	overflow: hidden;
 	pointer-events: auto;
+	cursor: pointer;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.TestCard:hover {
+	box-shadow: 0 0 15px rgba(0,0,0,0.07);
+}
+
+.TestCardImg {
+	flex: 0.5;
+	background-size: cover;
+	background-position: center;
+/*	background-color: gray;*/
+}
+
+.TestCardBody {
+	flex: 1;
+}
+
+.TestCardHeader {
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .TestCardTitle {
-	overflow: hidden;
-	text-overflow: ellipsis;
+	text-decoration-color: rgba(0,0,0,0.3);
+	text-decoration-thickness: 2px;
 }
 
 .TestCardText {
-	--line-count: 4;
+	--line-count: 3;
 	height: 	calc(calc(1.25rem * var(--line-count)) + 0.75rem);
 	max-height: calc(calc(1.25rem * var(--line-count)) + 0.75rem);
 
 	text-overflow: ellipsis;
 	overflow: hidden;
+
+	text-align: left;
 
 	display: -webkit-box !important;
 	-webkit-line-clamp: var(--line-count);

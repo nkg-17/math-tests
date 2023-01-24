@@ -2,6 +2,7 @@ import './TestCard.css';
 
 import { useState, useEffect } from 'react';
 import { Card, Stack, Badge, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 function TestCard(props) {
@@ -19,26 +20,31 @@ function TestCard(props) {
 		return () => { if (controller) controller.abort(); };
 	}, [])
 
-	return (
-		<Card className="TestCard overflow-hidden">
-			<Card.Body>
-				<Card.Title className="TestCardTitle text-start d-flex align-items-center justify-content-between">
-					<span>
-						<span>{props.test.title}</span>
-						{/*<span className="ms-2 text-muted fw-light" style={{fontSize:"14px"}}>#{props.test.id}</span>*/}
-					</span>
-				</Card.Title>
-				<Card.Text className="TestCardText text-start ">{props.test.problem.text}</Card.Text>
-				
-				{/*<Stack direction="horizontal" gap={1}>
-					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
-					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
-					<Badge bg="secondary" className="pe-auto" style={{cursor:"pointer"}}>#tag</Badge>
-				</Stack>
+	const style = (pic) ? {backgroundImage:`url(${pic})`} : {};
 
-				<hr />*/}
-			</Card.Body>
-		</Card>
+	return (
+		<Link to={`/test/${props.test.id}`} className="text-reset text-decoration-none">
+			<Card className="TestCard">
+				<div className="TestCardImg" style={style}></div>
+
+				<Card.Body className="TestCardBody">
+					<Card.Title className="TestCardHeader">
+						<span>{props.test.title}</span>
+							{/*<span className="ms-2 text-muted fw-light" style={{fontSize:"14px"}}>#{props.test.id}</span>*/}
+					</Card.Title>
+					
+					<Card.Text className="TestCardText">{props.test.problem.text}</Card.Text>
+					
+					<hr />
+
+					<Stack direction="horizontal" gap={1}>
+						<Badge bg="secondary">#tag</Badge>
+						<Badge bg="secondary">#tag</Badge>
+						<Badge bg="secondary">#tag</Badge>
+					</Stack>
+				</Card.Body>
+			</Card>
+		</Link>
 	);
 }
 
