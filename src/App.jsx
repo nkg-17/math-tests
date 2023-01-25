@@ -1,11 +1,11 @@
-import PageRouter from 'components/PageRouter';
+import AppRoutes from 'components/AppRoutes';
 import DefaultLayout from 'layouts/DefaultLayout';
 
 
 function App() {
 	return (
 		<DefaultLayout>
-			<PageRouter />
+			<AppRoutes />
 		</DefaultLayout>
 	);
 }

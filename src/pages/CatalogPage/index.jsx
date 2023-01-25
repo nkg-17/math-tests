@@ -11,7 +11,7 @@ import FiltersPanel from './FiltersPanel';
 import CatalogContext from 'contexts/CatalogContext';
 
 
-function Catalog(props) {
+function CatalogPage(props) {
 	const contextValue = {
 		testList: Array.from({length: 3}, (_, i) => createRandomTest()),
 		openTest: () => {}
@@ -19,8 +19,6 @@ function Catalog(props) {
 
 	return (
 		<>
-			<Header />
-
 			<CatalogContext.Provider value={contextValue}>
 				<Container className="">
 					<Row className="py-4 px-5 g-4">
@@ -45,4 +43,4 @@ function Catalog(props) {
 	);
 }
 
-export default Catalog;
+export default CatalogPage;
