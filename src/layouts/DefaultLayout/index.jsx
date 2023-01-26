@@ -11,7 +11,7 @@ function DefaultLayout(props) {
 		<Stack className="min-vh-100 justify-content-between">
 			<AppRouter>
 				<Header />
-				<main className="bg-light" style={{flex:"1"}}>
+				<main className="bg-light px-5 py-3" style={{flex:"1"}}>
 					{props.children}
 				</main>
 				<Footer />

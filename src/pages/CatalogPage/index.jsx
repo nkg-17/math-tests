@@ -18,28 +18,26 @@ function CatalogPage(props) {
 	};
 
 	return (
-		<>
+		<Container className="py-2">
 			<CatalogContext.Provider value={contextValue}>
-				<Container className="">
-					<Row className="py-4 px-5 g-4">
-						{/* #FIXME */}
-						<Col lg={1}></Col>
-						<Col lg={3}>
-							<FiltersPanel />
-						</Col>
-						<Col lg={7}>
-							<Stack gap={4}>
-								<Row><Col lg={6}>
+				<Row className="g-4">
+					<Col lg={3}>
+						<FiltersPanel />
+					</Col>
+					<Col lg={9}>
+						<Stack gap={4}>
+							<Row>
+								<Col lg={5}>
 									<SearchBar />
-								</Col></Row>
-								<CardGrid />
-							</Stack>
-						</Col>
-						<Col lg={1}></Col>
-					</Row>
-				</Container>
+								</Col>
+								<Col></Col>
+							</Row>
+							<CardGrid />
+						</Stack>
+					</Col>
+				</Row>
 			</CatalogContext.Provider>
-		</>
+		</Container>
 	);
 }
 
