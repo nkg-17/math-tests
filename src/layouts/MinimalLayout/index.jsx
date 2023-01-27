@@ -6,16 +6,15 @@ import { Stack } from 'react-bootstrap';
 import AppRouter from 'components/AppRouter';
 
 
-function DefaultLayout(props) {
+function MinimalLayout(props) {
 	return (
 		<Stack className="min-vh-100 justify-content-between">
-			<Header />
+			<Header minimized showReturn />
 			<main className="bg-light px-5 py-3" style={{flex:"1"}}>
 				{props.children}
 			</main>
-			<Footer />
 		</Stack>
 	);
 }
 
-export default DefaultLayout;
+export default MinimalLayout;

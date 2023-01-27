@@ -1,0 +1,7 @@
+
+.Panel {
+	height: 85vh;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}

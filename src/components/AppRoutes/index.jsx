@@ -11,7 +11,7 @@ function AppRoutes(props) {
 	return (
 			<Routes>
 				<Route path={RoutePaths.All} element={ <Navigate to={RoutePaths.Home} /> } />
-				<Route path={RoutePaths.Home} element={ <Navigate to={RoutePaths.Catalog} /> } />
+				<Route path={RoutePaths.Home} element={ <Navigate to={import.meta.env.VITE_DEFAULT_REDIRECT} /> } />
 
 				<Route path={RoutePaths.Catalog} element={ <CatalogPage /> } />
 				<Route path={RoutePaths.Test} element={ <TestPage /> } />

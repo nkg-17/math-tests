@@ -18,11 +18,42 @@
 
 	padding: 0 5rem;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 
 	background-color: white;
 /*	background-color: var(--bs-light);*/
+}
+
+.HeaderReturnLink {
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.HeaderReturn {
+	color: var(--bs-secondary);
+}
+
+.HeaderLink {
+	height: 100%;
+
+	margin: auto;
+
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+
+	pointer-events: auto;
+	cursor: pointer;
+
+	color: var(--bs-dark);
 }
 
 .HeaderNav {
@@ -41,22 +72,10 @@
 	gap: 0;
 
 	background-color: white;
-/*	background-color: var(--bs-light);*/
-	box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
 }
 
-.HeaderLink {
-	height: 100%;
-
-	display: flex;
-	flex-direction: row;
-	gap: 0.5rem;
-	align-items: center;
-
-	pointer-events: auto;
-	cursor: pointer;
-
-	color: var(--bs-dark);
+.HeaderShadow {
+	box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
 }
 
 .HeaderTitle {

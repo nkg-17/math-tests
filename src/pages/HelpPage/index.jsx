@@ -1,11 +1,15 @@
 import { Container, Stack, Row, Col } from 'react-bootstrap';
 
+import DefaultLayout from 'layouts/DefaultLayout';
+
 
 function HelpPage(props) {
 	return (
-		<div>
-			Help
-		</div>
+		<DefaultLayout>
+			<div>
+				Help
+			</div>
+		</DefaultLayout>
 	);
 }
 
