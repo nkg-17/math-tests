@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Navbar, Nav, Container, Stack, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Stack, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import RoutePaths from 'constants/routePaths';
@@ -19,7 +19,8 @@ function Header(props) {
 					to={RoutePaths.Catalog} 
 					className="HeaderReturnLink text-reset text-decoration-none"
 					style={{flex:"1"}}>
-						<h5 className="HeaderReturn m-0 p-0">Вернуться</h5>
+						<Button className="text-muted" variant="light">Вернуться</Button>
+						{/*<h5 className="HeaderReturn m-0 p-0">Вернуться</h5>*/}
 					</Link>
 				) : (<></>)}
 

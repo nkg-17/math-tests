@@ -5,3 +5,8 @@
 	align-items: center;
 	text-align: center;
 }
+
+.Picture {
+	background-size: cover;
+	background-position: center;
+}

@@ -16,7 +16,7 @@ import DefaultLayout from 'layouts/DefaultLayout';
 
 function CatalogPage(props) {
 	const contextValue = {
-		testList: Array.from({length: 3}, (_, i) => createRandomTest()),
+		testList: Array.from({length: 5}, (_, i) => createRandomTest()),
 		openTest: () => {}
 	};
 

@@ -1,6 +1,5 @@
 import { useEffect, useContext } from 'react';
 import { Container, Stack, Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 
 import './index.css';
 
@@ -13,11 +12,9 @@ import MinimalLayout from 'layouts/MinimalLayout';
 
 
 function TestPage(props) {
-	const { id } = useParams();
-	
 	return (
 		<MinimalLayout>
-			<Container fluid className="border p-0">
+			<Container fluid className="p-0">
 				<Row className="g-4">
 					<Col lg={6}>
 						<Problem />
