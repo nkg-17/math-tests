@@ -22,24 +22,27 @@ function CatalogPage(props) {
 
 	return (
 		<DefaultLayout>
-			<Container className="py-2">
+			<Container className="py-1">
 				<CatalogContext.Provider value={contextValue}>
-					<Row className="g-4">
-						<Col lg={3}>
-							<FiltersPanel />
-						</Col>
-						<Col lg={9}>
-							<Stack gap={4}>
-								<Row>
-									<Col lg={5}>
-										<SearchBar />
-									</Col>
-									<Col></Col>
-								</Row>
-								<CardGrid />
-							</Stack>
-						</Col>
-					</Row>
+					<Stack gap={3}>
+						<Row>
+							<Col lg={3}></Col>
+							<Col lg={5}>
+								<SearchBar />
+							</Col>
+							<Col></Col>
+						</Row>
+						<Row className="g-4">
+							<Col lg={3}>
+								<FiltersPanel />
+							</Col>
+							<Col lg={9}>
+								<Stack gap={4}>
+									<CardGrid />
+								</Stack>
+							</Col>
+						</Row>
+					</Stack>
 				</CatalogContext.Provider>
 			</Container>
 		</DefaultLayout>
