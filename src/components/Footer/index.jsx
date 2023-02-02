@@ -1,25 +1,24 @@
-import { Container, Stack } from 'react-bootstrap';
 
 
 function Footer(props) {
 	return (
-		<Container fluid className="p-5 bg-dark d-flex flex-row justify-content-center">
-			<Stack direction="horizontal" gap={3}>
+		<footer className="w-full h-28 text-white bg-gray-800 flex items-center justify-center">
+			<div className="flex flex-row items-center">
 				<a 
-				href={import.meta.env.VITE_URL_REPO} 
+				href="https://github.com/nkg-17/math-tests" 
 				target="_blank" 
-				className="m-0 link-light text-decoration-none">
-					Проект на GitHub <i className="bi bi-github" />
+				className="text-1xl font-normal hover:underline">
+					Проект на GitHub
 				</a>
-				<div className="border-start border-secondary h-100"></div>
+				<div className="mx-2 h-full border"></div>
 				<a 
-				href={import.meta.env.VITE_URL_CREATOR} 
+				href="" 
 				target="_blank" 
-				className="m-0 link-light text-decoration-none">
-					Сообщить об ошибке <i className="bi bi-telegram" />
+				className="text-1xl font-normal hover:underline">
+					Сообщить об Ошибке
 				</a>
-			</Stack>
-		</Container>
+			</div>
+		</footer>
 	);
 }
 

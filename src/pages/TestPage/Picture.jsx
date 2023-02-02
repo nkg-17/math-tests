@@ -1,13 +1,11 @@
-import { Container, Stack, Row, Col } from 'react-bootstrap';
-
 import './index.css';
 
 
 function Picture(props) {
 	return (
-		<Container fluid className="Panel border">
+		<div>
 			Picture
-		</Container>
+		</div>
 	);
 }
 

@@ -1,5 +1,3 @@
-import { Container, Stack, Row, Col } from 'react-bootstrap';
-
 import DefaultLayout from 'layouts/DefaultLayout';
 
 

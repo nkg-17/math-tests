@@ -1,0 +1,17 @@
+
+
+.TestPreviewText {
+	--line-count: 4;
+	height: 	calc(calc(1.75rem * var(--line-count)));
+	max-height: calc(calc(1.75rem * var(--line-count)));
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	text-align: left;
+
+	display: -webkit-box !important;
+	-webkit-line-clamp: var(--line-count);
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}
