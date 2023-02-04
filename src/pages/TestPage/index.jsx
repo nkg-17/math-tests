@@ -8,16 +8,22 @@ import Picture from './Picture';
 
 import AppContext from 'contexts/AppContext';
 
-import DefaultLayout from 'layouts/DefaultLayout';
+import Layout from 'components/Layout';
 
 
 function TestPage(props) {
 	const { id } = useParams();
 	
 	return (
-		<DefaultLayout>
-			TestPage
-		</DefaultLayout>
+		<Layout>
+			<Layout.Nav transparent textColor="black" />
+
+			<Layout.Body className="pt-6">
+				Test
+			</Layout.Body>
+
+			<Layout.Footer />
+		</Layout>
 	);
 }
 
