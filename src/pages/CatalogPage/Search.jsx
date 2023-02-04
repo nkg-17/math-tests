@@ -8,7 +8,7 @@ function Search(props) {
 				<label 
 				htmlFor="search" 
 				className="form-label mb-1 inline-block select-none text-gray-700">
-					Поиск по тексту задачи
+					Поиск по загаловку задачи
 				</label>
 				<input
 				type="search"
@@ -31,7 +31,7 @@ function Search(props) {
 				focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
 				"
 				id="search"
-				placeholder="Type query"
+				placeholder="Поиск"
 				/>
 			</div>
 			
