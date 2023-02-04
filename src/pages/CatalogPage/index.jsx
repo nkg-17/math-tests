@@ -11,8 +11,6 @@ import CatalogContext from 'contexts/CatalogContext';
 
 import DefaultLayout from 'layouts/DefaultLayout';
 
-import './index.css';
-
 
 function CatalogPage(props) {
 	const contextValue = {
@@ -20,8 +18,17 @@ function CatalogPage(props) {
 		openTest: () => {}
 	};
 
+	const bgHeight = "15rem";
+	const bgColorStart = "rgb(59,130,246)";
+	const bgColorEnd = "#0099ff";
+	const bg = `linear-gradient(to bottom, ${bgColorStart} 0, ${bgColorEnd} ${bgHeight}, transparent ${bgHeight} 100%)`;
+
 	return (
-		<DefaultLayout className="Catalog">
+		<DefaultLayout style={{background:bg}}>
+
+			{/* How do I scale this thing vertically? */}
+			<img style={{position:"absolute",top:bgHeight,width:"100vw",zIndex:-1}} src="wave.svg" />
+
 			<Header />
 			<Search className="mb-20" />
 			
