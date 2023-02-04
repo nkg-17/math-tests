@@ -41,11 +41,12 @@ function TestPreview(props) {
 				</div>
 				
 				<div className="flex flex-col gap-2 justify-center overflow-hidden">
-					<span 
-					className="font-normal capitalize text-slate-700 text-2xl truncate">
+					<div 
+					className="w-fit flex flex-col gap-2 font-normal capitalize text-slate-700 text-2xl truncate">
 						{props.test.title}
-					</span>
-					<div className="TestPreviewText text-slate-600 text-lg">
+						<span className="w-16 border-t-2 border-sky-300"></span>
+					</div>
+					<div className="TestPreviewText text-slate-600 text-base">
 						{props.test.problem.text}
 					</div>
 					<span className="font-light text-slate-500">Добавлено 2 Февраля 21:22</span>
