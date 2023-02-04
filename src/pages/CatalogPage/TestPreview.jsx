@@ -11,7 +11,7 @@ function TestPreview(props) {
 		let controller = new AbortController();
 		const signal = controller.signal;
 
-		fetch("https://api.waifu.pics/sfw/waifu", { signal })
+		fetch("https://api.waifu.pics/sfw/bonk", { signal })
 			.then((r) => r.json())
 			.then((j) => setPic(j['url']))
 			.catch((e) => {})
@@ -24,13 +24,13 @@ function TestPreview(props) {
 	return (
 		<Link to={`/test/${props.test.id}`} className="text-reset text-decoration-none">
 			<div 
-			className="
+			className={`
 			w-full p-6 
 			flex flex-row gap-6 
-			hover:bg-slate-100 
+			hover:bg-slate-200 
 			transition
 			ease-in-out 
-			cursor-pointer">
+			cursor-pointer ${props.className}`}>
 				<div 
 				className="
 				w-52 h-52 
