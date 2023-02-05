@@ -40,7 +40,7 @@ function TestPreview(props) {
 				style={style}>
 				</div>
 				
-				<div className="flex flex-col gap-2 justify-center overflow-hidden">
+				<div className="flex flex-col gap-2 justify-center overflow-hidden select-none pointer-events-none">
 					<div 
 					className="w-fit flex flex-col gap-2 font-normal capitalize text-slate-700 text-2xl truncate">
 						{props.test.title}

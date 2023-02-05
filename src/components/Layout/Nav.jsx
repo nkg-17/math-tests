@@ -26,8 +26,8 @@ function NavItem({children, className, style, textColor}) {
 }
 
 
-function Nav({children, className, style, transparent, textColor}) {
-	const text = textColor ? textColor : (transparent ? "white" : "black");
+function Nav({children, className, style, opaque, textColor}) {
+	const text = textColor ? textColor : (opaque ? "black" : "white");
 
 	return (
 		<nav 
@@ -37,8 +37,8 @@ function Nav({children, className, style, transparent, textColor}) {
 		text-gray-900 
 		transition 
 		ease-in-out 
-		bg-${(transparent) ? "transparent" : "white"}
-		shadow-black/10 ${(!transparent) ? "shadow-lg" : ""}
+		bg-${(opaque) ? "white" : "transparent"}
+		shadow-black/10 ${(opaque) ? "shadow-lg" : ""}
 		flex justify-end items-center ${className}`}
 		style={style}>
 			<div className="flex items-center flex-row gap-2">

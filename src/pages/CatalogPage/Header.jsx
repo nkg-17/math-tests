@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 
+import { publish } from 'helpers/events';
+
 import CatalogContext from 'contexts/CatalogContext';
 
 
@@ -13,8 +15,8 @@ function Header(props) {
 				Стереометрия ЕГЭ
 			</h1>
 			<motion.h2
-			onViewportEnter={() => context.setNavTransparent(true)}
-			onViewportLeave={() => context.setNavTransparent(false)}
+			onViewportEnter={() => publish('setNavOpaque', {opaque: false})}
+			onViewportLeave={() => publish('setNavOpaque', {opaque: true})}
 			className="w-fit text-xl font-light text-slate-200">
 				Каталог задач для подготовки к экзамену
 			</motion.h2>

@@ -1,23 +1,18 @@
-import { useState, useContext } from 'react';
-
 import { createRandomTest } from 'types/MathTest';
 
 import Search from './Search';
 import CardGrid from './CardGrid';
 import Header from './Header';
+import Nav from './Nav';
 
-import AppContext from 'contexts/AppContext';
 import CatalogContext from 'contexts/CatalogContext';
 
 import Layout from 'components/Layout';
 
 
 function CatalogPage(props) {
-	const [ navTransparent, setNavTransparent ] = useState(true);
 	const contextValue = {
-		testList: Array.from({length:2}, (_, i) => createRandomTest()),
-		openTest: () => {},
-		setNavTransparent: (t) => setNavTransparent(() => t)
+		testList: Array.from({length:2}, (_, i) => createRandomTest())
 	};
 
 	const bgHeight = "13rem";
@@ -27,10 +22,14 @@ function CatalogPage(props) {
 
 	return (
 		<Layout style={{background:bg}}>
-			<Layout.Nav transparent={navTransparent} />
+			<Nav />
 			<Layout.Body>
 				<CatalogContext.Provider value={contextValue}>
-					<img style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} src="wave.svg" />
+					<img 
+					className="select-none  pointer-events-none"
+					style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} 
+					src="wave.svg" />
+					
 					<Header />
 					<Search className="mb-20" />
 					<CardGrid />
