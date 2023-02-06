@@ -1,23 +1,13 @@
 import { useState, useEffect } from 'react';
+import useAnimePic from 'hooks/useAnimePic';
+
 import { Link } from 'react-router-dom';
 
 import './TestPreview.css';
 
 
 function TestPreview(props) {
-	const [ pic, setPic ] = useState(null);
-	
-	useEffect(() => {
-		let controller = new AbortController();
-		const signal = controller.signal;
-
-		fetch("https://api.waifu.pics/sfw/bonk", { signal })
-			.then((r) => r.json())
-			.then((j) => setPic(j['url']))
-			.catch((e) => {})
-		
-		return () => { if (controller) controller.abort(); };
-	}, [])
+	const pic = useAnimePic();
 
 	const style = (pic) ? {backgroundImage:`url(${pic})`} : {};
 
@@ -28,6 +18,7 @@ function TestPreview(props) {
 			w-full p-6 
 			flex flex-row gap-6 
 			hover:bg-slate-200 
+			active:bg-slate-300 
 			transition
 			ease-in-out 
 			cursor-pointer ${props.className}`}>

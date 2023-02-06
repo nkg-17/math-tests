@@ -12,7 +12,8 @@ import Layout from 'components/Layout';
 
 function CatalogPage(props) {
 	const contextValue = {
-		testList: Array.from({length:2}, (_, i) => createRandomTest())
+		testList: Array.from({length:4}, (_, i) => createRandomTest()),
+		setNavOpaqueEvent: "setNavOpaque"
 	};
 
 	const bgHeight = "13rem";
@@ -22,20 +23,20 @@ function CatalogPage(props) {
 
 	return (
 		<Layout style={{background:bg}}>
-			<Nav />
-			<Layout.Body>
-				<CatalogContext.Provider value={contextValue}>
-					<img 
-					className="select-none  pointer-events-none"
-					style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} 
-					src="wave.svg" />
-					
-					<Header />
-					<Search className="mb-20" />
-					<CardGrid />
-				</CatalogContext.Provider>
-			</Layout.Body>
-			<Layout.Footer />
+			<CatalogContext.Provider value={contextValue}>
+				<Nav />
+				<Layout.ArticleBody>
+						<img 
+						className="select-none  pointer-events-none"
+						style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} 
+						src="wave.svg" />
+						
+						<Header />
+						<Search className="mb-20" />
+						<CardGrid />
+				</Layout.ArticleBody>
+				<Layout.Footer />
+			</CatalogContext.Provider>
 		</Layout>
 	);
 }

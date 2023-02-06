@@ -4,10 +4,10 @@ import Layout from 'components/Layout';
 function HelpPage(props) {
 	return (
 		<Layout>
-			<Layout.Nav  transparent textColor="black" />
-			<Layout.Body className="pt-6">
+			<Layout.Nav showTitle textColor="black" />
+			<Layout.ArticleBody>
 				FAQ
-			</Layout.Body>
+			</Layout.ArticleBody>
 			<Layout.Footer />
 		</Layout>
 	);

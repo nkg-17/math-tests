@@ -15,8 +15,8 @@ function Header(props) {
 				Стереометрия ЕГЭ
 			</h1>
 			<motion.h2
-			onViewportEnter={() => publish('setNavOpaque', {opaque: false})}
-			onViewportLeave={() => publish('setNavOpaque', {opaque: true})}
+			onViewportEnter={() => publish(context.setNavOpaqueEvent, {opaque: false})}
+			onViewportLeave={() => publish(context.setNavOpaqueEvent, {opaque: true})}
 			className="w-fit text-xl font-light text-slate-200">
 				Каталог задач для подготовки к экзамену
 			</motion.h2>

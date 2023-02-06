@@ -1,12 +1,16 @@
-import './index.css';
+import { useState, useEffect } from 'react';
+import useAnimePic from 'hooks/useAnimePic';
 
 
-function Picture(props) {
+function Picture({test, className, style}) {
+	const pic = useAnimePic()
+
 	return (
-		<div>
-			Picture
+		<div className={`w-full flex flex-row justify-center ${className}`} style={style}>
+			<img 
+			src={pic} width="500" />
 		</div>
-	);
+	)
 }
 
-export default Picture;
+export default Picture

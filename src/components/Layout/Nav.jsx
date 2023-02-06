@@ -16,7 +16,7 @@ function NavItem({children, className, style, textColor}) {
 		transition 
 		ease-in-out 
 		text-${textColor ? textColor : "black"}
-		hover:text-${(textColor == "white") ? "black" : "white"}
+		hover:text-black
 		hover:bg-slate-200 active:bg-slate-300 ${className}
 		shadow-black/50 hover:shadow-md`}
 		style={style}>
@@ -26,21 +26,30 @@ function NavItem({children, className, style, textColor}) {
 }
 
 
-function Nav({children, className, style, opaque, textColor}) {
+function Nav({children, className, style, opaque, textColor, showTitle}) {
 	const text = textColor ? textColor : (opaque ? "black" : "white");
 
 	return (
 		<nav 
 		className={`
-		w-full sticky top-0 
-		px-24 py-4 
-		text-gray-900 
+		w-full h-14 sticky top-0 
+		px-24 
 		transition 
 		ease-in-out 
-		bg-${(opaque) ? "white" : "transparent"}
-		shadow-black/10 ${(opaque) ? "shadow-lg" : ""}
-		flex justify-end items-center ${className}`}
+		bg-${(opaque) ? "white" : "transparent"} 
+		shadow-black/10 ${(opaque) ? "shadow-lg" : ""} 
+		flex justify-between items-center ${className}`}
 		style={style}>
+			<Link to={RoutePaths.Home} className="h-full">
+				<span 
+				className={`
+				h-full
+				flex items-center 
+				text-xl ${(text == "black") ? "text-slate-500" : text} font-light 
+				select-none`}>
+						{(showTitle) ? "Стереометрия ЕГЭ" : ""}
+				</span>
+			</Link>
 			<div className="flex items-center flex-row gap-2">
 				<Link to={RoutePaths.Catalog}>
 					<NavItem textColor={text}>Каталог</NavItem>
