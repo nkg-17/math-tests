@@ -17,13 +17,16 @@ function TestPage(props) {
 	const { id } = useParams()
 	const test = useMemo(() => createRandomTest(), [id])
 
+	const setNavOpaqueEvent = "setNavOpaque"
+
 	const context = {
 		test: test
 	}
 
 	return (
 		<Layout>
-			<Layout.Nav showTitle textColor="black" />
+			<Layout.ReactiveNavTarget event={setNavOpaqueEvent} />
+			<Layout.ReactiveNav event={setNavOpaqueEvent} showTitle textColor="black" />
 
 			<Layout.ArticleBody className="gap-6">
 				<Title color="blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
