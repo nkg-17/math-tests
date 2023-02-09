@@ -1,4 +1,6 @@
 import Nav from './Nav';
+import ReactiveNav from './ReactiveNav';
+import ReactiveNavTarget from './ReactiveNavTarget';
 import ArticleBody from './ArticleBody';
 import FullscreenBody from './FullscreenBody';
 import Footer from './Footer';
@@ -14,6 +16,8 @@ function Layout({children, className, style}) {
 }
 
 Layout.Nav = Nav;
+Layout.ReactiveNav = ReactiveNav;
+Layout.ReactiveNavTarget = ReactiveNavTarget;
 Layout.ArticleBody = ArticleBody;
 Layout.FullscreenBody = FullscreenBody;
 Layout.Footer = Footer;
