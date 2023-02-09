@@ -7,6 +7,7 @@ import Title from './Title';
 import ProblemText from './ProblemText';
 import SolutionText from './SolutionText';
 import Picture from './Picture';
+import SubmitForm from './SubmitForm';
 
 import TestContext from 'contexts/TestContext';
 
@@ -34,10 +35,12 @@ function TestPage(props) {
 				<ProblemText test={test} />
 
 				<Picture test={test} />
-				
+
 				<Title color="border-emerald-400">Решение</Title>
 
 				<SolutionText test={test} />
+				
+				<SubmitForm test={test} />
 			</Layout.ArticleBody>
 
 			<Layout.Footer />
