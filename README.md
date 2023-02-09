@@ -1,60 +1,6 @@
 
-**[Архив Задач](https://github.com/nkg-17/math-tests-archive)**
+Полезные ссылки:
+- [**Архив Задач**](https://github.com/nkg-17/math-tests-archive)
 
-<details>
-<summary><h2>Формат Задачи</h2></summary>
-
-
-Все поля обязательны.
-
-**description.json Minimal**
-```json
-{
-    "title": "",
-
-    "problem": {
-        "text": ""
-    },
-
-    "solution": {
-        "text": ""
-    },
-
-    "answer": ""
-}
-```
-- `*.text` - Использует синтаксис Markdown и содержит escape-коды.
-
-**description.json 1.0**
-```json
-{
-    "title": "",
-    "publication-date": "",
-    "tags": [ "" ],
-
-    "problem": {
-        "text": "",
-        "picture": ""
-    },
-
-    "tips": [
-        {
-            "text": "",
-            "picture": ""
-        }
-    ],
-
-    "solution": {
-        "text": "",
-        "picture": ""
-    },
-
-    "answer": {
-    	"placeholder": null,
-    	"text": ""
-    }
-}
-```
-
-
-</details>
+На что обратить внимание:
+- Tailwind классы, созданные как переменные, например `color = 'text-' + (black ? 'slate-700' : 'slate-200')`, не будут добавлены в финальный CSS. ([Документация](https://tailwindcss.com/docs/content-configuration#safelisting-classes)).

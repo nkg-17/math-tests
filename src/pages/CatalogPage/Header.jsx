@@ -17,8 +17,7 @@ function Header(props) {
 				Стереометрия ЕГЭ
 			</h1>
 			<Layout.ReactiveNavTarget 
-			event={context.setNavOpaqueEvent} 
-			className="border-2 border-black" />
+			event={context.setNavOpaqueEvent} />
 			<h2 className="w-fit text-xl font-light text-slate-200">
 				Каталог задач для подготовки к экзамену
 			</h2>

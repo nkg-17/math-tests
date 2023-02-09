@@ -29,13 +29,13 @@ function TestPage(props) {
 			<Layout.ReactiveNav event={setNavOpaqueEvent} showTitle textColor="black" />
 
 			<Layout.ArticleBody className="gap-6">
-				<Title color="blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
+				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
 
 				<ProblemText test={test} />
 
 				<Picture test={test} />
 				
-				<Title color="emerald-400">Решение</Title>
+				<Title color="border-emerald-400">Решение</Title>
 
 				<SolutionText test={test} />
 			</Layout.ArticleBody>
