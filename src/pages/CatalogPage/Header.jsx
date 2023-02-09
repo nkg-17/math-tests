@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 
 import { publish } from 'helpers/events';
 
+import Layout from 'components/Layout';
+
 import CatalogContext from 'contexts/CatalogContext';
 
 
@@ -14,12 +16,12 @@ function Header(props) {
 			<h1 className="w-fit text-5xl font-light text-white">
 				Стереометрия ЕГЭ
 			</h1>
-			<motion.h2
-			onViewportEnter={() => publish(context.setNavOpaqueEvent, {opaque: false})}
-			onViewportLeave={() => publish(context.setNavOpaqueEvent, {opaque: true})}
-			className="w-fit text-xl font-light text-slate-200">
+			<Layout.ReactiveNavTarget 
+			event={context.setNavOpaqueEvent} 
+			className="border-2 border-black" />
+			<h2 className="w-fit text-xl font-light text-slate-200">
 				Каталог задач для подготовки к экзамену
-			</motion.h2>
+			</h2>
 		</header>
 	);
 }

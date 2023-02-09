@@ -3,7 +3,6 @@ import { createRandomTest } from 'types/MathTest';
 import Search from './Search';
 import CardGrid from './CardGrid';
 import Header from './Header';
-import Nav from './Nav';
 
 import CatalogContext from 'contexts/CatalogContext';
 
@@ -24,7 +23,7 @@ function CatalogPage(props) {
 	return (
 		<Layout style={{background:bg}}>
 			<CatalogContext.Provider value={contextValue}>
-				<Nav />
+				<Layout.ReactiveNav event={contextValue.setNavOpaqueEvent} />
 				<Layout.ArticleBody>
 						<img 
 						className="select-none  pointer-events-none"
