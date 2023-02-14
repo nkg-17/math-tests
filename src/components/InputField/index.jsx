@@ -20,7 +20,7 @@ function InputField({border, borderFocus, placeholder, onChange, className, styl
 			text-gray-700
 			bg-white bg-clip-padding
 			border border-solid ${border}
-			rounded
+			rounded-lg
 			transition
 			ease-in-out
 			m-0

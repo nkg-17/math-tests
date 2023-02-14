@@ -4,8 +4,9 @@ import { useMemo, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Title from './Title';
-import ProblemText from './ProblemText';
-import SolutionText from './SolutionText';
+import Problem from './Problem';
+import Solution from './Solution';
+import Tips from './Tips';
 import Picture from './Picture';
 import SubmitForm from './SubmitForm';
 
@@ -31,15 +32,10 @@ function TestPage(props) {
 
 			<Layout.ArticleBody className="gap-6">
 				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
-
-				<ProblemText test={test} />
-
+				<Problem test={test} />
 				<Picture test={test} />
-
-				<Title color="border-emerald-400">Решение</Title>
-
-				<SolutionText test={test} />
-				
+				<Tips test={test} />
+				<Solution test={test} />
 				<SubmitForm test={test} />
 			</Layout.ArticleBody>
 

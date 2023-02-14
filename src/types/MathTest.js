@@ -6,6 +6,7 @@ export default class MathTest {
 	id = -1;
 	title = "";
 	problem = { text: "" };
+	tips = [];
 	solution = { text: "" };
 	answer = "";
 
@@ -16,6 +17,7 @@ export default class MathTest {
 		this.id = props.id;
 		this.title = props.title;
 		this.problem.text = props.problem.text;
+		this.tips = props.tips;
 		this.solution.text = props.solution.text;
 		this.answer = props.answer;
 	}
@@ -52,6 +54,7 @@ export function createRandomTest() {
 		id: faker.datatype.number(),
 		title: faker.lorem.words(),
 		problem: { text: faker.lorem.paragraphs(5) },
+		tips: Array.from(Array(3), (n) => faker.lorem.paragraphs(1)),
 		solution: { text: faker.lorem.paragraphs(1) },
 		answer: faker.lorem.word()
 	});

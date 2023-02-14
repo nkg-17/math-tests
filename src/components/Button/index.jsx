@@ -1,24 +1,40 @@
 
 
 const buttonVariants = {
-	"light": {
-		text: "text-white",
-		textHover: "hover:text-slate-900",
-		bg: "bg-transparent",
-		bgHover: "hover:bg-slate-200",
-		bgActive: "active:bg-slate-300"
-	},
-	"dark": {
-		text: "text-slate-900",
-		textHover: "hover:text-slate-900",
-		bg: "bg-transparent",
-		bgHover: "hover:bg-slate-200",
-		bgActive: "active:bg-slate-300"
-	}
+	"light": 
+		`
+		text-white bg-transparent
+		hover:text-slate-900 hover:bg-slate-200
+		active:bg-slate-300
+		`,
+	"dark": 
+		`
+		text-slate-900 bg-transparent
+		hover:text-slate-900 hover:bg-slate-200
+		active:bg-slate-300
+		`,
+	"success": 
+		`
+		text-white bg-emerald-600
+		hover:text-white hover:bg-emerald-500
+		active:bg-emerald-700
+		`,
+	"primary": 
+		`
+		text-white bg-blue-600
+		hover:text-white hover:bg-blue-500
+		active:bg-blue-700
+		`,
+	"secondary": 
+		`
+		text-slate-900 bg-slate-300
+		hover:text-slate-900 hover:bg-slate-200
+		active:bg-slate-300
+		`,
 }
 
 function Button({children, onClick, variant, className, style}) {
-	variant = (buttonVariants[variant]) ? buttonVariants[variant] : buttonVariants["light"]
+	const classes = (buttonVariants[variant]) ? buttonVariants[variant] : buttonVariants["light"]
 
 	return (
 		<button 
@@ -29,8 +45,7 @@ function Button({children, onClick, variant, className, style}) {
 		rounded-lg 
 		transition 
 		ease-in-out 
-		${variant.text} ${variant.textHover} 
-		${variant.bg} ${variant.bgHover} ${variant.bgActive} 
+		${classes}
 		shadow-black/50 hover:shadow-md
 		${className} `}
 		style={style}>
