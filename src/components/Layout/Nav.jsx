@@ -1,33 +1,34 @@
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import RoutePaths from 'constants/routePaths';
+import NavTitle from './NavTitle';
+import Button from 'components/Button';
+import LinkButton from 'components/LinkButton';
 
+import RoutePaths from 'constants/routePaths';
 import AppContext from 'contexts/AppContext';
 
 
-function NavItem({children, className, style, textColor}) {
-	return (
-		<span 
-		className={`
-		px-3 py-2 
-		cursor-pointer select-none 
-		rounded-lg 
-		transition 
-		ease-in-out 
-		text-${textColor ? textColor : "black"}
-		hover:text-black
-		hover:bg-slate-200 active:bg-slate-300 ${className}
-		shadow-black/50 hover:shadow-md`}
-		style={style}>
-			{children}
-		</span>
-	)
+const navVariants = {
+	"transparent-light": {
+		buttonVariant: "light",
+		bg: "bg-transparent",
+		shadow: "shadow-none"
+	},
+	"transparent-dark": {
+		buttonVariant: "dark",
+		bg: "bg-transparent",
+		shadow: "shadow-none"
+	},
+	"opaque": {
+		buttonVariant: "dark",
+		bg: "bg-white",
+		shadow: "shadow-lg"
+	}
 }
 
-
-function Nav({children, className, style, opaque, textColor, showTitle}) {
-	const text = textColor ? textColor : (opaque ? "black" : "white");
+function Nav({children, className, style, variant, showTitle}) {
+	variant = (navVariants[variant]) ? navVariants[variant] : navVariants["transparent-light"]
 
 	return (
 		<nav 
@@ -36,30 +37,21 @@ function Nav({children, className, style, opaque, textColor, showTitle}) {
 		px-24 
 		transition 
 		ease-in-out 
-		bg-${(opaque) ? "white" : "transparent"} 
-		shadow-black/10 ${(opaque) ? "shadow-lg" : ""} 
+		${variant.bg} 
+		shadow-black/10 ${variant.shadow} 
 		flex justify-between items-center ${className}`}
 		style={style}>
-			<Link to={RoutePaths.Home} className="h-full">
-				<span 
-				className={`
-				h-full
-				flex items-center 
-				text-xl ${(text == "black") ? "text-slate-500" : text} font-light 
-				select-none`}>
-						{(showTitle) ? "Стереометрия ЕГЭ" : ""}
-				</span>
-			</Link>
+			<NavTitle show={showTitle} />
 			<div className="flex items-center flex-row gap-2">
-				<Link to={RoutePaths.Catalog}>
-					<NavItem textColor={text}>Каталог</NavItem>
-				</Link>
-				<Link to={RoutePaths.Help}>
-					<NavItem textColor={text}>Справка</NavItem>
-				</Link>
-				<button>
-					<NavItem textColor={text}><i className="bi bi-moon" /></NavItem>
-				</button>
+				<LinkButton to={RoutePaths.Catalog} variant={variant.buttonVariant}>
+					Каталог
+				</LinkButton>
+				<LinkButton to={RoutePaths.Help} variant={variant.buttonVariant}>
+					Справка
+				</LinkButton>
+				<Button to={RoutePaths.Catalog} variant={variant.buttonVariant}>
+					<i className="bi bi-moon" />
+				</Button>
 			</div>
 		</nav>
 	);

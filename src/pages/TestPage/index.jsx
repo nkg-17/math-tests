@@ -27,7 +27,7 @@ function TestPage(props) {
 	return (
 		<Layout>
 			<Layout.ReactiveNavTarget event={setNavOpaqueEvent} />
-			<Layout.ReactiveNav event={setNavOpaqueEvent} showTitle textColor="black" />
+			<Layout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
 			<Layout.ArticleBody className="gap-6">
 				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>

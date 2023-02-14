@@ -4,7 +4,7 @@ import { subscribe, unsubscribe } from 'helpers/events'
 import Layout from 'components/Layout'
 
 
-function ReactiveNav({event, showTitle, textColor, className, style}) {
+function ReactiveNav({event, showTitle, variant, className, style}) {
 	const [ opaque, setOpaque ] = useState(false)
 
 	function setNavOpaqueListener(e) {
@@ -19,8 +19,7 @@ function ReactiveNav({event, showTitle, textColor, className, style}) {
 	return (
 		<Layout.Nav 
 		showTitle={opaque ? opaque : showTitle} 
-		textColor={textColor} 
-		opaque={opaque} 
+		variant={opaque ? "opaque" : variant} 
 		className={className} 
 		style={style} />
 	)

@@ -7,7 +7,7 @@ function HelpPage(props) {
 	return (
 		<Layout>
 			<Layout.ReactiveNavTarget event={setNavOpaqueEvent} />
-			<Layout.ReactiveNav event={setNavOpaqueEvent} showTitle textColor="black" />
+			<Layout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 			<Layout.ArticleBody>
 				FAQ
 			</Layout.ArticleBody>

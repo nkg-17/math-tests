@@ -2,7 +2,6 @@ import Nav from './Nav';
 import ReactiveNav from './ReactiveNav';
 import ReactiveNavTarget from './ReactiveNavTarget';
 import ArticleBody from './ArticleBody';
-import FullscreenBody from './FullscreenBody';
 import Footer from './Footer';
 
 
@@ -19,7 +18,6 @@ Layout.Nav = Nav;
 Layout.ReactiveNav = ReactiveNav;
 Layout.ReactiveNavTarget = ReactiveNavTarget;
 Layout.ArticleBody = ArticleBody;
-Layout.FullscreenBody = FullscreenBody;
 Layout.Footer = Footer;
 
 export default Layout;

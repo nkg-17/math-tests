@@ -23,7 +23,9 @@ function CatalogPage(props) {
 	return (
 		<Layout style={{background:bg}}>
 			<CatalogContext.Provider value={contextValue}>
-				<Layout.ReactiveNav event={contextValue.setNavOpaqueEvent} />
+				<Layout.ReactiveNav 
+				variant="transparent-light" 
+				event={contextValue.setNavOpaqueEvent} />
 				<Layout.ArticleBody style={{paddingTop:"0"}}>
 						<img 
 						className="select-none  pointer-events-none"
