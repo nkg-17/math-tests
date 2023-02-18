@@ -17,13 +17,13 @@ const buttonVariants = {
 		`
 		text-white bg-emerald-600
 		hover:text-white hover:bg-emerald-500
-		active:bg-emerald-700
+		active:bg-emerald-600
 		`,
 	"primary": 
 		`
 		text-white bg-blue-600
 		hover:text-white hover:bg-blue-500
-		active:bg-blue-700
+		active:bg-blue-600
 		`,
 	"secondary": 
 		`
@@ -46,7 +46,7 @@ function Button({children, onClick, variant, className, style}) {
 		transition 
 		ease-in-out 
 		${classes}
-		shadow-black/50 hover:shadow-md
+		hover:shadow-slate-500/10 hover:shadow-md
 		${className} `}
 		style={style}>
 			{children}

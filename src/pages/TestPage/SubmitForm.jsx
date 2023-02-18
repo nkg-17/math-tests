@@ -10,14 +10,14 @@ import RoutePaths from 'constants/routePaths'
 function SubmitForm({test, className, style}) {
 	return (
 		<div className={`
-		w-full p-6 
-		flex flex-row gap-6 align-center justify-between
-		border 
+		w-full py-6 
+		flex flex-row align-center justify-between
+		 
 		${className}`} 
 		style={style}>
 			<div className="flex flex-row gap-2">
 				<LinkButton to={RoutePaths.Catalog} variant="secondary">Вернуться</LinkButton>
-				<LinkButton to={RoutePaths.Catalog} variant="primary">Открыть Решение</LinkButton>
+				<LinkButton to={RoutePaths.Catalog} variant="dark">Открыть Решение</LinkButton>
 			</div>
 
 			<div className="flex flex-row gap-2">
