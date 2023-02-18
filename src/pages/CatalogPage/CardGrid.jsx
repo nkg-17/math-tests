@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import TestCard from './TestCard';
+
+import TestPreview from './TestPreview';
 
 import CatalogContext from 'contexts/CatalogContext';
 
@@ -9,19 +9,9 @@ function CardGrid(props) {
 	const context = useContext(CatalogContext);
 
 	return (
-		<Container fluid className="g-0">
-			<Row className="gx-4 gy-3">
-				{
-					context.testList.map((test) => {
-						return (
-							<Col className="col-12" key={test.id}>
-								<TestCard test={test} />
-							</Col>
-						);
-					})
-				}
-			</Row>
-		</Container>
+		<div className="w-full grid grid-cols-1 divide-y divide-slate-300/100">
+			{ context.testList.map((test) => <TestPreview key={test.id} test={test} />) }
+		</div>
 	);
 }
 

@@ -1,30 +1,46 @@
-import { useEffect, useContext } from 'react';
-import { Container, Stack, Row, Col } from 'react-bootstrap';
+import { createRandomTest } from 'types/MathTest';
 
-import './index.css';
+import { useMemo, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 
+import Title from './Title';
 import Problem from './Problem';
+import Solution from './Solution';
+import Tips from './Tips';
 import Picture from './Picture';
+import SubmitForm from './SubmitForm';
 
-import AppContext from 'contexts/AppContext';
+import TestContext from 'contexts/TestContext';
 
-import MinimalLayout from 'layouts/MinimalLayout';
+import Layout from 'components/Layout';
 
 
 function TestPage(props) {
+	const { id } = useParams()
+	const test = useMemo(() => createRandomTest(), [id])
+
+	const setNavOpaqueEvent = "setNavOpaque"
+
+	const context = {
+		test: test
+	}
+
 	return (
-		<MinimalLayout>
-			<Container fluid className="p-0">
-				<Row className="g-4">
-					<Col lg={6}>
-						<Problem />
-					</Col>
-					<Col lg={6}>
-						<Picture />
-					</Col>
-				</Row>			
-			</Container>
-		</MinimalLayout>
+		<Layout>
+			<Layout.ReactiveNavTarget event={setNavOpaqueEvent} />
+			<Layout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
+
+			<Layout.ArticleBody className="gap-6">
+				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
+				<Problem test={test} />
+				<Picture test={test} />
+				<Tips test={test} />
+				<Solution test={test} />
+				<SubmitForm test={test} />
+			</Layout.ArticleBody>
+
+			<Layout.Footer />
+		</Layout>
 	);
 }
 

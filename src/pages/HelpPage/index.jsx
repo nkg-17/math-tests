@@ -1,15 +1,18 @@
-import { Container, Stack, Row, Col } from 'react-bootstrap';
-
-import DefaultLayout from 'layouts/DefaultLayout';
+import Layout from 'components/Layout';
 
 
 function HelpPage(props) {
+	const setNavOpaqueEvent = "setNavOpaque";
+
 	return (
-		<DefaultLayout>
-			<div>
-				Help
-			</div>
-		</DefaultLayout>
+		<Layout>
+			<Layout.ReactiveNavTarget event={setNavOpaqueEvent} />
+			<Layout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
+			<Layout.ArticleBody>
+				FAQ
+			</Layout.ArticleBody>
+			<Layout.Footer />
+		</Layout>
 	);
 }
 

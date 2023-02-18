@@ -1,48 +1,44 @@
-import { useEffect, useContext } from 'react';
-import { Navbar, Nav, Container, Stack, Row, Col } from 'react-bootstrap';
-
 import { createRandomTest } from 'types/MathTest';
 
-import SearchBar from 'components/SearchBar';
-import Header from 'components/Header';
+import Search from './Search';
 import CardGrid from './CardGrid';
-import FiltersPanel from './FiltersPanel';
+import Header from './Header';
 
-import AppContext from 'contexts/AppContext';
 import CatalogContext from 'contexts/CatalogContext';
 
-import DefaultLayout from 'layouts/DefaultLayout';
+import Layout from 'components/Layout';
 
 
 function CatalogPage(props) {
 	const contextValue = {
-		testList: Array.from({length: 5}, (_, i) => createRandomTest()),
-		openTest: () => {}
+		testList: Array.from({length:4}, (_, i) => createRandomTest()),
+		setNavOpaqueEvent: "setNavOpaque"
 	};
 
+	const bgHeight = "13rem";
+	const bgColorStart = "rgb(59,130,246)";
+	const bgColorEnd = "#0099ff";
+	const bg = `linear-gradient(to bottom, ${bgColorStart} 0, ${bgColorEnd} ${bgHeight}, transparent ${bgHeight} 100%)`;
+
 	return (
-		<DefaultLayout>
-			<Container className="py-2">
-				<CatalogContext.Provider value={contextValue}>
-					<Row className="g-4">
-						<Col lg={3}>
-							<FiltersPanel />
-						</Col>
-						<Col lg={9}>
-							<Stack gap={4}>
-								<Row>
-									<Col lg={5}>
-										<SearchBar />
-									</Col>
-									<Col></Col>
-								</Row>
-								<CardGrid />
-							</Stack>
-						</Col>
-					</Row>
-				</CatalogContext.Provider>
-			</Container>
-		</DefaultLayout>
+		<Layout style={{background:bg}}>
+			<CatalogContext.Provider value={contextValue}>
+				<Layout.ReactiveNav 
+				variant="transparent-light" 
+				event={contextValue.setNavOpaqueEvent} />
+				<Layout.ArticleBody style={{paddingTop:"0"}}>
+						<img 
+						className="select-none  pointer-events-none"
+						style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} 
+						src="wave.svg" />
+						
+						<Header />
+						<Search className="mb-20" />
+						<CardGrid />
+				</Layout.ArticleBody>
+				<Layout.Footer />
+			</CatalogContext.Provider>
+		</Layout>
 	);
 }
 
