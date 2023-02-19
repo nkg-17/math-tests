@@ -1,6 +1,6 @@
 import { createRandomTest } from 'types/MathTest';
 
-import { useMemo, useEffect, useContext } from 'react';
+import { useState, useMemo, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Title from './Title';
@@ -16,31 +16,35 @@ import { ArticleLayout } from 'components/layouts';
 
 
 function Test(props) {
+    const [ solutionOpened, setSolutionOpened ] = useState(false)
 	const { id } = useParams()
 	const test = useMemo(() => createRandomTest(), [id])
 
 	const setNavOpaqueEvent = "setNavOpaque"
 
 	const context = {
-		test: test
+		test: test,
+        solutionOpened: solutionOpened,
+        openSolution: () => setSolutionOpened(true),
 	}
 
 	return (
-		<ArticleLayout>
-			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
-			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
+        <TestContext.Provider value={context}>
+    		<ArticleLayout>
+    			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
+    			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
-			<ArticleLayout.Body className="gap-6">
-				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
-				<Problem test={test} />
-				<Picture test={test} />
-				<Tips test={test} />
-				<Solution test={test} />
-				<SubmitForm test={test} />
-			</ArticleLayout.Body>
+    			<ArticleLayout.Body className="gap-6">
+    				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
+    				<Problem test={test} />
+    				<Picture test={test} />
+    				{ (solutionOpened) ? (<Solution test={test} />) : (<></>) }
+    				<SubmitForm test={test} />
+    			</ArticleLayout.Body>
 
-			<ArticleLayout.Footer />
-		</ArticleLayout>
+    			<ArticleLayout.Footer />
+    		</ArticleLayout>
+        </TestContext.Provider>
 	);
 }
 
