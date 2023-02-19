@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
-import { isEqualType, stringIsNullOrEmpty } from 'helpers/validateFields';
+import { isEqualType, isStringNullOrEmpty } from 'utils/helpers/fields';
 
 
-export default class MathTest {
+export class MathTest {
 	id = -1;
 	title = "";
 	problem = { text: "" };

@@ -1,13 +1,11 @@
-
-import AppRouter from 'components/AppRouter';
-import AppRoutes from 'components/AppRoutes';
-
-import AppContext from 'contexts/AppContext';
+import { AppRouter, AppRoutes } from 'components/routing';
+import { ScrollToTop } from 'components/utils';
 
 
 function App() {
 	return (
 		<AppRouter>
+			<ScrollToTop />
 			<AppRoutes />
 		</AppRouter>
 	);
