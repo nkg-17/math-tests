@@ -40,7 +40,7 @@ function Nav({children, className, style, variant, showTitle}) {
 		flex justify-between items-center ${className}`}
 		style={style}>
 			<NavTitle show={showTitle} />
-			<div className="flex items-center flex-row gap-2">
+			<div className="flex items-center flex-row gap-2 font-light">
 				<LinkButton to={RoutePaths.Catalog} variant={variant.buttonVariant}>
 					Каталог
 				</LinkButton>
@@ -48,7 +48,7 @@ function Nav({children, className, style, variant, showTitle}) {
 					Справка
 				</LinkButton>
 				<Button to={RoutePaths.Catalog} variant={variant.buttonVariant}>
-					<i className="bi bi-moon" />
+					<i className="bi bi-three-dots" />
 				</Button>
 			</div>
 		</nav>
