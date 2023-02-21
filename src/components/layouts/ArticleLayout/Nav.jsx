@@ -48,7 +48,7 @@ function Nav({children, className, style, variant, showTitle}) {
 					Справка
 				</LinkButton>
 				<Button to={RoutePaths.Catalog} variant={variant.buttonVariant}>
-					<i className="bi bi-three-dots" />
+					<i className="bi bi-list" />
 				</Button>
 			</div>
 		</nav>
