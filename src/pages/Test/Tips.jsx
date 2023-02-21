@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 import { Button } from 'components/buttons'
-import Title from './Title'
+import { ArticleLayout } from 'components/layouts';
 
 
 const animation = {
@@ -18,7 +18,9 @@ function Solution({test}) {
 				(tipsOpenCount > 0)
 				? (
 					<motion.div {...animation} className="w-full">
-						<Title color="border-cyan-400 transition ease-in-out">Подсказки</Title>
+						<ArticleLayout.Heading color="border-cyan-400 transition ease-in-out">
+                            Подсказки
+                        </ArticleLayout.Heading>
 					</motion.div>
 				)
 				: (<></>)

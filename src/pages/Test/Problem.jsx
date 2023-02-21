@@ -1,4 +1,3 @@
-import Title from './Title'
 
 
 function Problem({className, style, test}) {

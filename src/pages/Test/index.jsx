@@ -3,7 +3,6 @@ import { createRandomTest } from 'types/MathTest';
 import { useState, useMemo, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Title from './Title';
 import Problem from './Problem';
 import Solution from './Solution';
 import Tips from './Tips';
@@ -35,7 +34,9 @@ function Test(props) {
     			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
     			<ArticleLayout.Body className="gap-6">
-    				<Title color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">{test.title}</Title>
+    				<ArticleLayout.Heading color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">
+                        {test.title}
+                    </ArticleLayout.Heading>
     				<Problem test={test} />
     				<Picture test={test} />
     				{ (solutionOpened) ? (<Solution test={test} />) : (<></>) }
