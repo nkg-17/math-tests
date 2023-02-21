@@ -1,3 +1,3 @@
-import useAnimePic from './useAnimePic'
+import useRandomPic from './useRandomPic'
 
-export { useAnimePic }
+export { useRandomPic }

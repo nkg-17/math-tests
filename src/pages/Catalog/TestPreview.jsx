@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAnimePic } from 'hooks';
+import { useRandomPic } from 'hooks';
 
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import './TestPreview.css';
 
 
 function TestPreview(props) {
-	const pic = useAnimePic();
+	const pic = useRandomPic();
 
 	const style = (pic) ? {backgroundImage:`url(${pic})`} : {};
 
