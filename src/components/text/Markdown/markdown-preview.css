@@ -1,0 +1,36 @@
+.markdown-preview {
+    @apply text-base text-slate-600;
+    @apply no-underline;
+    @apply font-sans;
+}
+
+.markdown-preview p {
+}
+
+.markdown-preview a {
+}
+
+.markdown-preview em {
+    @apply not-italic;
+}
+
+.markdown-preview strong {
+    font-weight: normal;
+}
+
+.markdown-preview code {
+}
+
+.markdown-preview h1 {
+    @apply text-base;
+    @apply mb-1
+}
+.markdown-preview h2 {
+    @apply text-base;
+}
+.markdown-preview h3 {
+    @apply text-base;
+}
+.markdown-preview h4 {
+    @apply text-base;
+}

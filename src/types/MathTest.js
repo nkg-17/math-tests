@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { isEqualType, isStringNullOrEmpty } from 'utils/helpers/fields';
+import sample from './sample.json';
 
 
 export class MathTest {
@@ -50,6 +51,7 @@ export function verifyTest(test) {
 }
 
 export function createRandomTest() {
+    // return { ...sample, id: faker.datatype.number() };
 	return new MathTest({
 		id: faker.datatype.number(),
 		title: faker.lorem.words(),

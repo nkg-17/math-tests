@@ -1,11 +1,14 @@
+import { Markdown } from 'components/text'
 
 
 function Problem({className, style, test}) {
 	return (
 		<div 
-		className={`w-full ${className}`}
+		className={`w-full text-lg markdown ${className}`}
 		style={style}>
-			<p className="w-full text-lg text-start text-slate-900 first-letter:ml-10">{test.problem.text}</p>
+            <Markdown>
+                {test.problem.text}
+            </Markdown>
 		</div>
 	)
 }

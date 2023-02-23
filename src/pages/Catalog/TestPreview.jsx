@@ -1,3 +1,5 @@
+import { Markdown } from 'components/text';
+
 import { useState, useEffect } from 'react';
 import { useRandomPic } from 'hooks';
 
@@ -37,8 +39,10 @@ function TestPreview(props) {
 						{props.test.title}
 						<span className="w-16 border-t-2 border-sky-300"></span>
 					</div>
-					<div className="TestPreviewText text-slate-600 text-base">
-						{props.test.problem.text}
+					<div className="TestPreviewText">
+                        <Markdown preview baseColor="text-slate-600" baseFont="text-base">
+                            {props.test.problem.text}
+                        </Markdown>
 					</div>
 					<span className="font-light text-slate-500">Добавлено 2 Февраля 21:22</span>
 				</div>
