@@ -1,4 +1,4 @@
-import Markdown from './Markdown'
+import { Markdown } from './markdown'
 
 
 export { Markdown }

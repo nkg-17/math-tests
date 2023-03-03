@@ -51,13 +51,13 @@ export function verifyTest(test) {
 }
 
 export function createRandomTest() {
-    return { ...sample, id: faker.datatype.number() };
-	// return new MathTest({
-	// 	id: faker.datatype.number(),
-	// 	title: faker.lorem.words(),
-	// 	problem: { text: faker.lorem.paragraphs(5) },
-	// 	tips: Array.from(Array(3), (n) => faker.lorem.paragraphs(1)),
-	// 	solution: { text: faker.lorem.paragraphs(1) },
-	// 	answer: faker.lorem.word()
-	// });
+    // return { ...sample, id: faker.datatype.number() };
+	return new MathTest({
+		id: faker.datatype.number(),
+		title: faker.lorem.words(),
+		problem: { text: faker.lorem.paragraphs(5) },
+		tips: Array.from(Array(3), (n) => faker.lorem.paragraphs(1)),
+		solution: { text: faker.lorem.paragraphs(1) },
+		answer: faker.lorem.word()
+	});
 }

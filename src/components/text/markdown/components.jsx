@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, createElement } from 'react'
 import { MarkdownContext } from 'contexts'
 
 import './components.css'
@@ -7,9 +7,8 @@ import './components.css'
 const previewText = "markdown-preview text-slate-500 not-italic font-normal"
 const normalText = "text-slate-700"
 
-function a({href, children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdAnchor({preview, href, children, ...props}) {
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText} 
             bg-teal-50 
@@ -18,7 +17,7 @@ function a({href, children, ...props}) {
             hover:bg-teal-100
             hover:border-sky-500`;
 
-    return (context.preview)
+    return (preview)
         ? (
             <span className={classes}>
                 {children}
@@ -31,9 +30,8 @@ function a({href, children, ...props}) {
         )
 }
 
-function blockquote({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdBlockquote({preview, children, ...props}) {
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText} 
             mx-4 my-4 pl-3 py-4
@@ -46,9 +44,8 @@ function blockquote({children, ...props}) {
     )
 }
 
-function br({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdBreak({preview, children, ...props}) {
+    const classes = (preview) 
         ? ``
         : ``;
 
@@ -59,9 +56,8 @@ function br({children, ...props}) {
     )
 }
 
-function code({inline, children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdCode({preview, inline, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
         : (inline)
             ? `p-1 rounded-md bg-gray-100 text-slate-700`
@@ -74,9 +70,8 @@ function code({inline, children, ...props}) {
     )
 }
 
-function em({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdEmphesized({preview, children, ...props}) {
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText}`;
 
@@ -87,8 +82,7 @@ function em({children, ...props}) {
     )
 }
 
-function heading({level, children, ...props}) {
-    const context = useContext(MarkdownContext);
+export function MdHeading({preview, level, children, ...props}) {
     const headingLevel = {
         1: "text-4xl",
         2: "text-3xl",
@@ -96,7 +90,7 @@ function heading({level, children, ...props}) {
         4: "text-xl",
         5: "text-lg",
     };
-    const classes = (context.preview) 
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText} ${headingLevel[level]}`;
 
@@ -107,9 +101,8 @@ function heading({level, children, ...props}) {
     )
 }
 
-function hr({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdHorizontalRule({preview, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
         : `my-6 border-gray-300`;
 
@@ -120,11 +113,10 @@ function hr({children, ...props}) {
     )
 }
 
-function img({src, children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdImage({preview, src, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
-        : ``;
+        : `mx-auto my-2`;
 
     return (
         <img src={src} className={classes}>
@@ -133,9 +125,8 @@ function img({src, children, ...props}) {
     )
 }
 
-function li({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdListItem({preview, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
         : `${normalText}`;
 
@@ -146,9 +137,8 @@ function li({children, ...props}) {
     )
 }
 
-function ol({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdOrderedList({preview, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
         : `list-decimal list-inside ${normalText}`;
 
@@ -159,9 +149,8 @@ function ol({children, ...props}) {
     )
 }
 
-function p({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdParagraph({preview, children, ...props}) {
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText} mb-1.5`;
 
@@ -172,11 +161,10 @@ function p({children, ...props}) {
     )
 }
 
-function pre({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdPreformatted({preview, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
-        : `my-2 px-3 py-1 rounded-md bg-gray-100 text-slate-700`;
+        : `overflow-scroll my-2 px-4 py-3 rounded-md bg-gray-100 text-slate-700`;
 
     return (
         <pre className={classes}>
@@ -185,9 +173,8 @@ function pre({children, ...props}) {
     )
 }
 
-function strong({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdStrong({preview, children, ...props}) {
+    const classes = (preview) 
         ? `${previewText}`
         : `${normalText}`;
 
@@ -198,9 +185,8 @@ function strong({children, ...props}) {
     )
 }
 
-function ul({children, ...props}) {
-    const context = useContext(MarkdownContext);
-    const classes = (context.preview) 
+export function MdUnorderedList({preview, children, ...props}) {
+    const classes = (preview) 
         ? `hidden`
         : `list-disc list-inside ${normalText}`;
 
@@ -211,26 +197,39 @@ function ul({children, ...props}) {
     )
 }
 
+/* Some bullshittery here */
+
+function ContextAwareComponent(component) {
+    function wrapper({children, ...props}) {
+        const context = useContext(MarkdownContext)
+        return createElement(
+            component, 
+            { preview: context.preview, ...props }, 
+            children
+        )
+    }
+    return wrapper;
+}
+
 const MarkdownComponents = {
-    "ul": ul,
-    "strong": strong,
-    "pre": pre,
-    "p": p,
-    "ol": ol,
-    "li": li,
-    "img": img,
-    "hr": hr,
-    "h1": heading,
-    "h2": heading,
-    "h3": heading,
-    "h4": heading,
-    "h5": heading,
-    "h6": heading,
-    "em": em,
-    "code": code,
-    "blockquote": blockquote,
-    "br": br,
-    "a": a,
+    "ul": ContextAwareComponent(MdUnorderedList),
+    "strong": ContextAwareComponent(MdStrong),
+    "pre": ContextAwareComponent(MdPreformatted),
+    "p": ContextAwareComponent(MdParagraph),
+    "ol": ContextAwareComponent(MdOrderedList),
+    "li": ContextAwareComponent(MdListItem),
+    "img": ContextAwareComponent(MdImage),
+    "hr": ContextAwareComponent(MdHorizontalRule),
+    "h1": ContextAwareComponent(MdHeading),
+    "h2": ContextAwareComponent(MdHeading),
+    "h3": ContextAwareComponent(MdHeading),
+    "h4": ContextAwareComponent(MdHeading),
+    "h5": ContextAwareComponent(MdHeading),
+    "em": ContextAwareComponent(MdEmphesized),
+    "code": ContextAwareComponent(MdCode),
+    "blockquote": ContextAwareComponent(MdBlockquote),
+    "br": ContextAwareComponent(MdBreak),
+    "a": ContextAwareComponent(MdAnchor),
 }
 
 export { MarkdownComponents };
