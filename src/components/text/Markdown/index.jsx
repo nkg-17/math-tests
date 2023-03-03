@@ -1,19 +1,16 @@
+import { MarkdownContext } from 'contexts'
 import RectMarkdown from 'react-markdown'
-
-import './markdown.css'
-import './markdown-preview.css'
+import { MarkdownComponents } from './components'
 
 
-function Markdown({children, preview, className, style}) {
+function Markdown({children, preview}) {
     return (
-        <div className={`
-        w-full
-        ${(preview ? "markdown-preview" : "markdown")} 
-        ${className}
-        `} style={style}>
-            <RectMarkdown>
-                {children}
-            </RectMarkdown>
+        <div className={`w-full`}>
+            <MarkdownContext.Provider value={{preview: preview}}>
+                <RectMarkdown 
+                children={children} 
+                components={MarkdownComponents} />
+            </MarkdownContext.Provider>
         </div>
     )
 }
