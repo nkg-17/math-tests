@@ -5,7 +5,7 @@ function Heading({color, sideNote, children, className, style}) {
 
     return (
         <div 
-        className={`w-full flex flex-row items-center justify-between ${className}`}
+        className={`w-full my-6 flex flex-row items-center justify-between ${className}`}
         style={style}>
             <span className="flex flex-row">
                 <span className={`w-2 border-l-2 ${color} mr-2`} />

@@ -3,11 +3,10 @@ import { createRandomTest } from 'types/MathTest';
 import { useState, useMemo, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Button } from 'components/buttons';
 import Problem from './Problem';
 import Solution from './Solution';
 import Tips from './Tips';
-import Picture from './Picture';
-import SubmitForm from './SubmitForm';
 
 import { TestContext } from 'contexts';
 
@@ -15,7 +14,6 @@ import { ArticleLayout } from 'components/layouts';
 
 
 function Test(props) {
-    const [ solutionOpened, setSolutionOpened ] = useState(false)
 	const { id } = useParams()
 	const test = useMemo(() => createRandomTest(), [id])
 
@@ -23,8 +21,6 @@ function Test(props) {
 
 	const context = {
 		test: test,
-        solutionOpened: solutionOpened,
-        openSolution: () => setSolutionOpened(true),
 	}
 
 	return (
@@ -33,15 +29,18 @@ function Test(props) {
     			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
     			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
-    			<ArticleLayout.Body className="gap-6">
-    				<ArticleLayout.Heading color="border-blue-300" sideNote="Добавлено 6 Февраля 14:49">
+    			<ArticleLayout.Body>
+
+    				<ArticleLayout.Heading 
+                    color="border-blue-300" 
+                    sideNote="Добавлено 6 Февраля 14:49">
                         {test.title}
                     </ArticleLayout.Heading>
-    				<Problem test={test} />
-    				<Picture test={test} />
-    				{ (solutionOpened) ? (<Solution test={test} />) : (<></>) }
-    				<SubmitForm test={test} />
-    			</ArticleLayout.Body>
+    			
+                	<Problem test={test} />
+                    <Solution test={test} />
+                    
+                </ArticleLayout.Body>
 
     			<ArticleLayout.Footer />
     		</ArticleLayout>

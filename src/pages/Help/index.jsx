@@ -40,7 +40,7 @@ TODO: Перенести в репозиторий как отдельный Mar
 \`\`\`
 
 Картинка, выровненная по центру:
-![Альтернативный текст (если не прогрузилось)](https://picsum.photos/100)
+![](https://picsum.photos/100)
 `;
 
 function HelpPage(props) {
@@ -50,7 +50,7 @@ function HelpPage(props) {
 		<ArticleLayout>
 			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
 			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
-			<ArticleLayout.Body className="gap-6">
+			<ArticleLayout.Body>
 
 				<ArticleLayout.Heading color="border-blue-300">
                     Форматирование страницы

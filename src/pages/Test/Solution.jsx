@@ -1,28 +1,46 @@
+import { useState } from 'react'
 import { Markdown } from 'components/text'
-import { ArticleLayout } from 'components/layouts';
+import { Button } from 'components/buttons'
+import { ArticleLayout } from 'components/layouts'
+
+import './Solution.css'
 
 
 function Solution({test}) {
-	return (
-		<>
+    const [ isOpened, setOpened ] = useState(false)
+
+    const answer = (
+        <span className="w-full text-lg">
+            <span className="font-bold">Ответ: </span>{test.answer}
+        </span>
+    )
+
+	const openedSolution = (
+		<div className="w-full solution">
 			<ArticleLayout.Heading color="border-emerald-400">
                 Решение
             </ArticleLayout.Heading>
-			<div className={`w-full text-lg text-start text-slate-900 first-letter:ml-10`}>
+
+			<div className={`w-full`}>
                 <Markdown>
 				    {test.solution.text}
                 </Markdown>
                 <br />
-                {
-                    (test.answer) ? (
-                        <span className="w-full">
-                            <span className="font-bold">Ответ: </span>{test.answer}
-                        </span>
-                    ) : (<></>)
-                }
+                { test.answer && answer }
 			</div>
-		</>
+		</div>
 	)
+
+    const openButton = (
+        <Button 
+        className="mt-6"
+        variant="success" 
+        onClick={() => setOpened(() => true)}>
+            Открыть Решение
+        </Button>
+    )
+
+    return (isOpened) ? openedSolution : openButton
 }
 
 export default Solution

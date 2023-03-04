@@ -5,12 +5,13 @@ import './components.css'
 
 
 const previewText = "markdown-preview text-slate-500 not-italic font-normal"
-const normalText = "text-slate-700"
+const normalTextColor = "text-slate-700"
+const baseTextSize = "text-lg"
 
 export function MdAnchor({preview, href, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText} 
+        : `${normalTextColor} ${baseTextSize}
             bg-teal-50 
             border-b 
             border-sky-300 
@@ -33,7 +34,7 @@ export function MdAnchor({preview, href, children, ...props}) {
 export function MdBlockquote({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText} 
+        : `${normalTextColor} ${baseTextSize}
             mx-4 my-4 pl-3 py-4
             border-l-8 border-gray-300 bg-gray-100`;
 
@@ -60,7 +61,7 @@ export function MdCode({preview, inline, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
         : (inline)
-            ? `p-1 rounded-md bg-gray-100 text-slate-700`
+            ? `${baseTextSize} p-1 rounded-md bg-gray-100 text-slate-700`
             : ``; // `pre` handles multiline code blocks
 
     return (
@@ -73,7 +74,7 @@ export function MdCode({preview, inline, children, ...props}) {
 export function MdEmphesized({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText}`;
+        : `${normalTextColor} ${baseTextSize}`;
 
     return (
         <em className={classes}>
@@ -88,11 +89,11 @@ export function MdHeading({preview, level, children, ...props}) {
         2: "text-3xl",
         3: "text-2xl",
         4: "text-xl",
-        5: "text-lg",
+        5: baseTextSize,
     };
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText} ${headingLevel[level]}`;
+        : `${normalTextColor} ${headingLevel[level]}`;
 
     return (
         <h5 className={classes}>
@@ -128,7 +129,7 @@ export function MdImage({preview, src, children, ...props}) {
 export function MdListItem({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `${normalText}`;
+        : `${normalTextColor} ${baseTextSize}`;
 
     return (
         <li className={classes}>
@@ -140,7 +141,7 @@ export function MdListItem({preview, children, ...props}) {
 export function MdOrderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-decimal list-inside ${normalText}`;
+        : `list-decimal list-inside ${normalTextColor} ${baseTextSize}`;
 
     return (
         <ol className={classes}>
@@ -152,7 +153,7 @@ export function MdOrderedList({preview, children, ...props}) {
 export function MdParagraph({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText} mb-1.5`;
+        : `${normalTextColor} ${baseTextSize} mb-1.5`;
 
     return (
         <p className={classes}>
@@ -164,7 +165,11 @@ export function MdParagraph({preview, children, ...props}) {
 export function MdPreformatted({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `overflow-scroll my-2 px-4 py-3 rounded-md bg-gray-100 text-slate-700`;
+        : ` ${baseTextSize} 
+        overflow-scroll 
+        my-2 px-4 py-3 
+        rounded-md 
+        bg-gray-100 text-slate-700`;
 
     return (
         <pre className={classes}>
@@ -176,7 +181,7 @@ export function MdPreformatted({preview, children, ...props}) {
 export function MdStrong({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalText}`;
+        : `${normalTextColor} ${baseTextSize}`;
 
     return (
         <strong className={classes}>
@@ -188,7 +193,7 @@ export function MdStrong({preview, children, ...props}) {
 export function MdUnorderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-disc list-inside ${normalText}`;
+        : `list-disc list-inside ${normalTextColor} ${baseTextSize}`;
 
     return (
         <ul className={classes}>
