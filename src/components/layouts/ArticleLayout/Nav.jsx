@@ -9,17 +9,17 @@ import { RoutePaths } from 'utils/constants';
 
 const navVariants = {
 	"transparent-light": {
-		buttonVariant: "light",
+		buttonVariant: "transparent",
 		bg: "bg-transparent",
 		shadow: "shadow-none"
 	},
 	"transparent-dark": {
-		buttonVariant: "dark",
+		buttonVariant: "light",
 		bg: "bg-transparent",
 		shadow: "shadow-none"
 	},
 	"opaque": {
-		buttonVariant: "dark",
+		buttonVariant: "light",
 		bg: "bg-white",
 		shadow: "shadow-lg"
 	}
@@ -47,9 +47,9 @@ function Nav({children, className, style, variant, showTitle}) {
 				<LinkButton to={RoutePaths.Help} variant={variant.buttonVariant}>
 					Справка
 				</LinkButton>
-				<Button to={RoutePaths.Catalog} variant={variant.buttonVariant}>
+				{/*<Button to={RoutePaths.Catalog} variant={variant.buttonVariant}>
 					<i className="bi bi-list" />
-				</Button>
+				</Button>*/}
 			</div>
 		</nav>
 	);

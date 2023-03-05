@@ -1,17 +1,23 @@
 
 
 const buttonVariants = {
+    "transparent": 
+        `
+        text-white bg-transparent
+        hover:text-slate-900 hover:bg-slate-200
+        active:bg-slate-300
+        `,
 	"light": 
 		`
-		text-white bg-transparent
+		text-slate-900 bg-transparent
 		hover:text-slate-900 hover:bg-slate-200
 		active:bg-slate-300
 		`,
 	"dark": 
 		`
-		text-slate-900 bg-transparent
-		hover:text-slate-900 hover:bg-slate-200
-		active:bg-slate-300
+		text-white bg-slate-600
+		hover:bg-slate-500
+		active:bg-slate-600
 		`,
 	"success": 
 		`
