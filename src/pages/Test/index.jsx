@@ -1,12 +1,12 @@
-import { createRandomTest } from 'types/MathTest';
+import { createRandomTest } from 'types/MathTest'
+import { RemoteStorage } from 'services'
 
-import { useState, useMemo, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useRef, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
-import { Button } from 'components/buttons';
-import Problem from './Problem';
-import Solution from './Solution';
-import Tips from './Tips';
+import { Button } from 'components/buttons'
+import { Loader } from 'components/utils'
+import Body from './Body'
 
 import { TestContext } from 'contexts';
 
@@ -15,13 +15,22 @@ import { ArticleLayout } from 'components/layouts';
 
 function Test(props) {
 	const { id } = useParams()
-	const test = useMemo(() => createRandomTest(), [id])
+    const [ state, setState ] = useState('loading')
+	const test = useRef(null)
 
 	const setNavOpaqueEvent = "setNavOpaque"
 
 	const context = {
-		test: test,
+		test: test.current,
 	}
+
+    useEffect(() => {
+        RemoteStorage.getTest(id)
+            .then((t) => {
+                test.current = t
+                setState('loaded')
+            })
+    }, [])
 
 	return (
         <TestContext.Provider value={context}>
@@ -29,17 +38,12 @@ function Test(props) {
     			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
     			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
-    			<ArticleLayout.Body>
-
-    				<ArticleLayout.Heading 
-                    color="border-blue-300" 
-                    sideNote="Добавлено 6 Февраля 14:49">
-                        {test.title}
-                    </ArticleLayout.Heading>
-    			
-                	<Problem test={test} />
-                    <Solution test={test} />
-                    
+                <ArticleLayout.Body>
+        			{ 
+                        (state == 'loaded') 
+                            ? <Body test={context.test} /> 
+                            : <Loader className="my-auto mx-auto" />
+                    }
                 </ArticleLayout.Body>
 
     			<ArticleLayout.Footer />

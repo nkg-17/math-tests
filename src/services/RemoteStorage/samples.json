@@ -1,0 +1,24 @@
+ {
+    "tests": {
+        "1": {
+            "id": "1",
+            "title": "Title 1",
+            "problem": { "text": "# h1\n\n## h2\n\n### h3\n\n#### h4\n\n##### h5\n\nnormal text\n\n*emphesized*\n\n**bold**\n\n***emphesized bold***\n\n[link](https://google.com)\n\n[*em link*](https://google.com)\n\nHere is !inline code!\n\n!!!\nmultiline\ncode\n!!!\n\n(paragraph)\n\n![image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png)\n\nNormal\nMultiline\nText\n\n> Blockquote\n\n> Multiline\n> \n> blockquote\n---\n(line break)\n\n1. Ordered\n2. List\n\n- Unordered\n- List\n\n<img style='height:50px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png'></img>\n" },
+            "tips": [],
+            "solution": { "text": "# solution title\nsolution text\n" },
+            "answer": "answer 1"
+        },
+        "2": {
+            "id": "2",
+            "title": "Title 2",
+            "problem": { "text": "Sample text\n![](https://picsum.photos/100)" },
+            "tips": [ "Tip 1", "Tip 2" ],
+            "solution": { "text": "Solution\n![](https://picsum.photos/100)" },
+            "answer": "answer 2"
+        }
+    },
+    
+    "files": {
+        "docs/help.md": "TODO: Перенести в репозиторий как отдельный Markdown документ.\n# Заголовок 1\n## Заголовок 2\n### Заголовок 3\n#### Заголовок 4\n##### Заголовок 5\n\n[Ссылка на документацию](https://www.markdownguide.org/cheat-sheet/#basic-syntax)\n\nОбычный текст\nбез переноса.\nПустая строка разделяет абзацы.\n\n*Косой шрифт*\n\n**Жирный шрифт**\n\n***Шрифт с обоими стилями***\n\n> Цитата\n> без переноса\n\n> Цитата\n> \n> с без переносом\n\nПример !кода! внутри абзаца.\n\n!!!\n\nМоногострочный\n  отформатированный\nблок\n!!!\n\nКартинка, выровненная по центру:\n![](https://picsum.photos/100)"
+    }
+ }
