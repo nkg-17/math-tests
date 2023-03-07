@@ -18,7 +18,7 @@ const Tests = (function() {
 
 
 function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, 1000))
+    return new Promise(resolve => setTimeout(resolve, (Math.random() % 2 + 0.5) * 500))
 }
 
 function getFile(docName) {
@@ -39,12 +39,12 @@ function getTest(id) {
     })
 }
 
-function getTestList() {
+function getTestIDList() {
     return new Promise(async (resolve, reject) => {
         await delay()
-        if (!SampleData['tests'])
+        if (!IDs)
             reject(`Задания не найдены.`)
-        resolve(Tests)
+        resolve(IDs)
     })
 }
 
@@ -52,7 +52,7 @@ function getTestList() {
 const LocalTestStorage = {
     getFile: getFile,
     getTest: getTest,
-    getTestList: getTestList,
+    getTestIDList: getTestIDList,
 }
 
 export { LocalTestStorage }

@@ -53,7 +53,7 @@ function Loader({
         <motion.span 
         initial={variants.hidden}
         animate={variants.visible}
-        exit={variants.hidden}
+        exit={{transition: { delay: 0.5 }, ...variants.hidden}}
         transition={variants.normalTime}
         className={`Loader ${color} ${className}`} 
         style={style}

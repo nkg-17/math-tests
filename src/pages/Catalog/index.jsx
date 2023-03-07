@@ -1,34 +1,34 @@
 import { useState, useEffect, useRef } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import { createRandomTest } from 'types/MathTest';
 
 import Search from './Search';
-import PreviewList from './PreviewList';
+import Previews from './Previews';
 import Header from './Header';
 
 import { Loader } from 'components/utils'
 
 import { CatalogContext } from 'contexts';
 import { ArticleLayout } from 'components/layouts';
-import { RemoteStorage } from 'services'
 
 import wave from 'assets/wave.svg'
 
 
 function Catalog(props) {
     const [ state, setState ] = useState('loading')
-    const testList = useRef(null)
-
-    useEffect(() => {
-        RemoteStorage.getTestList()
-            .then((lst) => {
-                testList.current = lst
-                setState(() => 'loaded')
-            })
-    }, [])
+    const tests = useRef(null)
 
 	const contextValue = {
-		testList: testList.current,
+		tests: tests.current,
+        setTestListLoaded: (status, data) => {
+            if (status == 'failed') {
+                console.log('failed:', data)
+                setState(() => status)
+            }
+            else {
+                tests.current = data
+                setState(() => 'loaded')
+            }
+        },
 		setNavOpaqueEvent: "setNavOpaque"
 	};
 
@@ -49,17 +49,9 @@ function Catalog(props) {
                     className="select-none  pointer-events-none"
                     style={{position:"absolute",top:"12.9rem",width:"100%",zIndex:-1}} 
                     src={wave} />
-                    
                     <Header />
                     <Search className="mb-20" />
-
-                    <AnimatePresence>
-                    {
-                        (state == 'loaded')
-                        ? <PreviewList key={1} />
-                        : <Loader className="my-auto mx-auto" key={2} />
-                    }
-                    </AnimatePresence>
+                    <Previews />
 				</ArticleLayout.Body>
 
 				<ArticleLayout.Footer />

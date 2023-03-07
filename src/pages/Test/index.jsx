@@ -29,15 +29,25 @@ function Test() {
 	}
 
     useEffect(() => {
+        let aborted = false
+
         RemoteStorage.getTest(id)
             .then((t) => {
+                if (aborted)
+                    return
+
                 test.current = t
                 setState(() => 'loaded')
             })
             .catch((e) => {
+                if (aborted)
+                    return
+                
                 error.current = e
                 setState(() => 'failed')
             })
+
+        return () => aborted = false
     }, [])
 
     let contents = null

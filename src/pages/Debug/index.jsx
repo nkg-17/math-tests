@@ -11,7 +11,7 @@ function Debug(props) {
             <ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
             <ArticleLayout.Body>
 
-                <Loader size={30} color="text-sky-500" thickness={3} progress={0.6} />
+                <Loader size={30} color="text-sky-500" thickness={3} progress={0.99999} />
                 <Loader color="text-gray-500" progress={1} />
 
             </ArticleLayout.Body>
