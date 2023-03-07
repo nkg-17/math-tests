@@ -1,4 +1,4 @@
-import { motion, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { AnimVariants as variants } from 'utils/animations'
 
 import { WrapScrollReset } from 'components/utils'
@@ -12,7 +12,6 @@ import Footer from './Footer'
 
 
 function ArticleLayout({children, className, style, ...props}) {
-    const { scrollY } = useScroll()
 	return (
         <WrapScrollReset>
     		<motion.div

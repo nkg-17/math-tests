@@ -24,7 +24,8 @@ function getFile(docName) {
 }
 
 function getTest(id) {
-    id = IDs[Math.floor(Math.random() * IDs.length)]
+    // id = IDs[Math.floor(Math.random() * IDs.length)]
+    id = '1'
     return new Promise(async (resolve, reject) => {
         await delay()
         if (!SampleData['tests'][id])

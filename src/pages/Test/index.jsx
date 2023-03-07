@@ -30,7 +30,7 @@ function Test() {
         RemoteStorage.getTest(id)
             .then((t) => {
                 test.current = t
-                setState('loaded')
+                setState(() => 'loaded')
             })
     }, [])
 
