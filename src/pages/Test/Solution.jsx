@@ -1,9 +1,9 @@
+import { motion, AnimatePresence } from 'framer-motion'
+import { AnimVariants as variants } from 'utils/animations'
 import { useState } from 'react'
 import { Markdown } from 'components/text'
 import { Button } from 'components/buttons'
 import { ArticleLayout } from 'components/layouts'
-
-import './Solution.css'
 
 
 function Solution({test}) {
@@ -16,7 +16,12 @@ function Solution({test}) {
     )
 
 	const openedSolution = (
-		<div className="w-full solution">
+		<motion.div 
+        initial={variants.hidden}
+        animate={variants.visible}
+        transition={variants.normalTime}
+        className="w-full" 
+        key="openedSolution">
 			<ArticleLayout.Heading color="border-emerald-400">
                 Решение
             </ArticleLayout.Heading>
@@ -28,19 +33,31 @@ function Solution({test}) {
                 <br />
                 { test.answer && answer }
 			</div>
-		</div>
+		</motion.div>
 	)
 
     const openButton = (
-        <Button 
-        className="mt-6"
-        variant="success" 
-        onClick={() => setOpened(() => true)}>
-            Открыть Решение
-        </Button>
+        <motion.div 
+        initial={variants.hidden}
+        animate={variants.visible}
+        exit={variants.hidden}
+        transition={variants.quicker}
+        key="openButton"
+
+        className="mt-6 text-center">
+            <Button 
+            variant="success" 
+            onClick={() => setOpened(() => true)}>
+                Открыть Решение
+            </Button>
+        </motion.div>
     )
 
-    return (isOpened) ? openedSolution : openButton
+    return (
+        <AnimatePresence mode="wait">
+            { (!isOpened) ? openButton : openedSolution }
+        </AnimatePresence>
+    )
 }
 
 export default Solution

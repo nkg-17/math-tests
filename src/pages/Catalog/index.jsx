@@ -10,7 +10,7 @@ import { ArticleLayout } from 'components/layouts';
 import wave from 'assets/wave.svg'
 
 
-function CatalogPage(props) {
+function Catalog(props) {
 	const contextValue = {
 		testList: Array.from({length:4}, (_, i) => createRandomTest()),
 		setNavOpaqueEvent: "setNavOpaque"
@@ -43,4 +43,4 @@ function CatalogPage(props) {
 	);
 }
 
-export default CatalogPage;
+export default Catalog;

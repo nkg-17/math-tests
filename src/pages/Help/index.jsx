@@ -43,7 +43,7 @@ TODO: Перенести в репозиторий как отдельный Mar
 ![](https://picsum.photos/100)
 `;
 
-function HelpPage(props) {
+function Help(props) {
 	const setNavOpaqueEvent = "setNavOpaque";
 
 	return (
@@ -73,4 +73,4 @@ function HelpPage(props) {
 	);
 }
 
-export default HelpPage;
+export default Help;

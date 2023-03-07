@@ -1,7 +1,9 @@
+import { motion, AnimatePresence } from 'framer-motion'
+
 import { createRandomTest } from 'types/MathTest'
 import { RemoteStorage } from 'services'
 
-import { useState, useRef, useEffect, useContext } from 'react'
+import { useState, useRef, useEffect, useContext, forwardRef } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { Button } from 'components/buttons'
@@ -13,7 +15,7 @@ import { TestContext } from 'contexts';
 import { ArticleLayout } from 'components/layouts';
 
 
-function Test(props) {
+function Test() {
 	const { id } = useParams()
     const [ state, setState ] = useState('loading')
 	const test = useRef(null)
@@ -33,23 +35,25 @@ function Test(props) {
     }, [])
 
 	return (
-        <TestContext.Provider value={context}>
-    		<ArticleLayout>
-    			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
-    			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
+		<ArticleLayout>
+			<ArticleLayout.ReactiveNavTarget event={setNavOpaqueEvent} />
+			<ArticleLayout.ReactiveNav variant="transparent-dark" event={setNavOpaqueEvent} showTitle />
 
-                <ArticleLayout.Body>
-        			{ 
-                        (state == 'loaded') 
-                            ? <Body test={context.test} /> 
-                            : <Loader className="my-auto mx-auto" />
-                    }
-                </ArticleLayout.Body>
+            <ArticleLayout.Body>
+                <TestContext.Provider value={context}>
+                <AnimatePresence mode="wait">
+    			{
+                    (state == 'loaded') 
+                        ? <Body test={context.test} key={1} /> 
+                        : <Loader className="my-auto mx-auto" key={2} />
+                }
+                </AnimatePresence>
+                </TestContext.Provider>
+            </ArticleLayout.Body>
 
-    			<ArticleLayout.Footer />
-    		</ArticleLayout>
-        </TestContext.Provider>
-	);
+			<ArticleLayout.Footer />
+		</ArticleLayout>
+	)
 }
 
 export default Test;
