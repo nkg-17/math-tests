@@ -6,6 +6,7 @@ import sample from './sample.json';
 export class MathTest {
 	id = -1;
 	title = "";
+    preview = "";
 	problem = { text: "" };
 	tips = [];
 	solution = { text: "" };
@@ -17,6 +18,7 @@ export class MathTest {
 
 		this.id = props.id;
 		this.title = props.title;
+        this.preview = props.preview;
 		this.problem.text = props.problem.text;
 		this.tips = props.tips;
 		this.solution.text = props.solution.text;
@@ -39,6 +41,9 @@ export function verifyTest(test) {
 	if (!isEqualType(test.title, "")) 		return createError("'title' is not a string.");
 	if (stringIsNullOrEmpty(test.title))	return createError("'title' should not be an empty string.");
 	
+    if (!isEqualType(test.preview, ""))       return createError("'preview' is not a string.");
+    if (stringIsNullOrEmpty(test.title))    return createError("'preview' should not be an empty string.");
+
 	if (!isEqualType(test.answer, "")) 		return createError("'answer' is not a string.");
 	if (stringIsNullOrEmpty(test.answer))	return createError("'answer' should not be an empty string.");
 	
@@ -55,6 +60,7 @@ export function createRandomTest() {
 	return new MathTest({
 		id: faker.datatype.number(),
 		title: faker.lorem.words(),
+        preview: 'https://picsum.photos/300',
 		problem: { text: `${faker.lorem.paragraphs(5)}\n\n![](https://picsum.photos/300)` },
 		tips: Array.from(Array(3), (n) => faker.lorem.paragraphs(1)),
 		solution: { text: faker.lorem.paragraphs(1) },
