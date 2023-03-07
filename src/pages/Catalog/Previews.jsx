@@ -62,8 +62,8 @@ function Previews(props) {
 	return (
         <AnimatePresence mode="wait">
             { 
-                (context.tests)
-                    ? <PreviewList tests={context.tests} key={1} />
+                (Tests)
+                    ? <PreviewList tests={Tests} key={1} />
                     : <Loader progress={progress} className="mx-auto" key={2} />
             }
         </AnimatePresence>
