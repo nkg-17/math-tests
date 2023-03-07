@@ -1,17 +1,15 @@
 import { Markdown } from 'components/text';
 
 import { useState, useEffect } from 'react';
-import { useRandomPic } from 'hooks';
-
 import { Link } from 'react-router-dom';
 
 import './TestPreview.css';
 
 
 function TestPreview(props) {
-	const pic = useRandomPic();
-
-	const style = (pic) ? {backgroundImage:`url(${pic})`} : {};
+	const preview = (props.test.preview)
+        ? <img src={props.test.preview} className="w-full" />
+        : <i className="bi bi-file-earmark-image text-slate-400 text-2xl" />;
 
 	return (
 		<Link to={`/test/${props.test.id}`} className="text-reset text-decoration-none">
@@ -19,18 +17,19 @@ function TestPreview(props) {
 			className={`
 			w-full p-6 
 			flex flex-row gap-6 
-			hover:bg-slate-200 
-			active:bg-slate-300 
+			hover:bg-slate-100 
+			active:bg-slate-200 
 			transition
 			ease-in-out 
 			cursor-pointer ${props.className}`}>
 				<div 
-				className="
+				className={`
 				w-52 h-52 
 				flex-none
-				border 
-				bg-cover bg-center bg-no-repeat"
-				style={style}>
+				border
+                flex items-center justify-center
+                overflow-hidden`}>
+                    {preview}
 				</div>
 				
 				<div className="flex flex-col gap-2 justify-center overflow-hidden select-none pointer-events-none">

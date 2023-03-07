@@ -11,6 +11,7 @@
         "2": {
             "id": "2",
             "title": "Title 2",
+            "preview": "https://picsum.photos/200/300",
             "problem": { "text": "Sample text\n![](https://picsum.photos/100)" },
             "tips": [ "Tip 1", "Tip 2" ],
             "solution": { "text": "Solution\n![](https://picsum.photos/100)" },
