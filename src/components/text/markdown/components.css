@@ -7,4 +7,6 @@
 
 .markdown-blockquote p {
     margin-bottom: 0;
+
+    @apply text-slate-500;
 }

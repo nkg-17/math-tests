@@ -36,7 +36,7 @@ export function MdBlockquote({preview, children, ...props}) {
         ? `${previewText}`
         : `${normalTextColor} ${baseTextSize}
             markdown-blockquote
-            mx-4 my-4 pl-3 py-4
+            pl-6 my-4 pl-3 py-4
             border-l-8 border-gray-300 bg-gray-100`;
 
     return (
@@ -86,10 +86,10 @@ export function MdEmphesized({preview, children, ...props}) {
 
 export function MdHeading({preview, level, children, ...props}) {
     const headingLevel = {
-        1: "text-4xl",
-        2: "text-3xl",
-        3: "text-2xl",
-        4: "text-xl",
+        1: "text-4xl mb-4",
+        2: "text-3xl mb-3",
+        3: "text-2xl mb-2",
+        4: "text-xl mb-1",
         5: baseTextSize,
     };
     const classes = (preview) 
