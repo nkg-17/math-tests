@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom'
 
 import { Button } from 'components/buttons'
 import { Loader } from 'components/utils'
+import { Alert } from 'components/utils'
 import Body from './Body'
 
 import { TestContext } from 'contexts';
@@ -19,6 +20,7 @@ function Test() {
 	const { id } = useParams()
     const [ state, setState ] = useState('loading')
 	const test = useRef(null)
+    const error = useRef(null)
 
 	const setNavOpaqueEvent = "setNavOpaque"
 
@@ -32,7 +34,19 @@ function Test() {
                 test.current = t
                 setState(() => 'loaded')
             })
+            .catch((e) => {
+                error.current = e
+                setState(() => 'failed')
+            })
     }, [])
+
+    let contents = null
+    if (state == 'loaded')
+        contents = (<Body test={context.test} key={1} />)
+    else if (state == 'failed')
+        contents = (<Alert key={2}>{error.current}</Alert>)
+    else
+        contents = (<Loader className="my-auto mx-auto" key={2} />)
 
 	return (
 		<ArticleLayout>
@@ -42,11 +56,7 @@ function Test() {
             <ArticleLayout.Body>
                 <TestContext.Provider value={context}>
                 <AnimatePresence mode="wait">
-    			{
-                    (state == 'loaded') 
-                        ? <Body test={context.test} key={1} /> 
-                        : <Loader className="my-auto mx-auto" key={2} />
-                }
+                    { contents }
                 </AnimatePresence>
                 </TestContext.Provider>
             </ArticleLayout.Body>

@@ -9,6 +9,13 @@ const IDs = (function() {
     return ids
 })()
 
+const Tests = (function() {
+    let tests = []
+    for (let i in SampleData['tests'])
+        tests.push(SampleData['tests'][i])
+    return tests
+})()
+
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, 1000))
@@ -18,18 +25,16 @@ function getFile(docName) {
     return new Promise(async (resolve, reject) => {
         await delay()
         if (!SampleData['files'][docName])
-            reject(`No such file as '${docName}'`)
+            reject(`Файла с именем '${docName}' не существует.`)
         resolve(SampleData['files'][docName])
     })
 }
 
 function getTest(id) {
-    // id = IDs[Math.floor(Math.random() * IDs.length)]
-    id = '1'
     return new Promise(async (resolve, reject) => {
         await delay()
         if (!SampleData['tests'][id])
-            reject(`No such test with '${id}'`)
+            reject(`Задания с номером '${id}' не существует.`)
         resolve(SampleData['tests'][id])
     })
 }
@@ -37,9 +42,9 @@ function getTest(id) {
 function getTestList() {
     return new Promise(async (resolve, reject) => {
         await delay()
-        if (!SampleData['files'])
-            reject(`Tests are not available`)
-        resolve(SampleData['files'])
+        if (!SampleData['tests'])
+            reject(`Задания не найдены.`)
+        resolve(Tests)
     })
 }
 
