@@ -35,6 +35,7 @@ export function MdBlockquote({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
         : `${normalTextColor} ${baseTextSize}
+            markdown-blockquote
             mx-4 my-4 pl-3 py-4
             border-l-8 border-gray-300 bg-gray-100`;
 

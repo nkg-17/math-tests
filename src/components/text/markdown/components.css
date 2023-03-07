@@ -4,3 +4,7 @@
     line-height: 24px;
     font-size: 16px;
 }
+
+.markdown-blockquote p {
+    margin-bottom: 0;
+}
