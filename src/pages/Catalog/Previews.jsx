@@ -12,6 +12,8 @@ import PreviewList from './PreviewList';
 import { CatalogContext } from 'contexts';
 
 
+let Tests = null
+
 function Previews(props) {
     const [ progress, setProgress ] = useState(0)
     const tests = useRef([])
@@ -19,6 +21,8 @@ function Previews(props) {
 
     useEffect(() => {
         let aborted = false
+        if (Tests)
+            return
 
         RemoteStorage.getTestIDList()
             .then(async (ids) => {
@@ -46,7 +50,11 @@ function Previews(props) {
     }, [])
 
     useEffect(() => {
+        if (Tests)
+            context.setTestListLoaded('loaded', Tests)
+
         if (progress == 1) {
+            Tests = tests.current
             context.setTestListLoaded('loaded', tests.current)
         }
     }, [progress])
