@@ -1,11 +1,20 @@
 
-.Loader {
-    border-style: solid;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite, appear 0.3s;
+.Loader-circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.Loader-circle-dim {
+    transform-origin: 50% 50%;
+    stroke: rgba(0,0,0,0.1);
+    fill: transparent;
+}
+
+.Loader-circle-rotating {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: rotation 1s linear infinite;
 }
 
 @keyframes rotation {

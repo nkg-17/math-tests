@@ -13,6 +13,7 @@ import { RoutePaths } from 'utils/constants'
 import CatalogPage from 'pages/Catalog'
 import TestPage from 'pages/Test'
 import HelpPage from 'pages/Help'
+import DebugPage from 'pages/Debug'
 
 
 function AppRoutes(props) {
@@ -27,6 +28,7 @@ function AppRoutes(props) {
                 <Route path={RoutePaths.Catalog} element={ <CatalogPage /> } />
                 <Route path={RoutePaths.Test} element={ <TestPage /> } />
                 <Route path={RoutePaths.Help} element={ <HelpPage /> } />
+                <Route path={"debug"} element={ <DebugPage /> } />
             </Routes>
         </AnimatePresence>
     )
