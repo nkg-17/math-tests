@@ -29,11 +29,6 @@ export default function Alert({children, className, style}) {
             </div>
             <hr className="border-rose-400 mb-3" />
             <div className="flex flex-row gap-3">
-                <Link 
-                to={RoutePaths.Catalog}
-                className="text-1xl font-normal underline">
-                    <span>Вернуться</span>
-                </Link>
                 <a 
                 href={import.meta.env.VITE_URL_CREATOR}
                 target="_blank" 

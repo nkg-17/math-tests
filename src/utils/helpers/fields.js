@@ -8,6 +8,6 @@ export function isNotNull(a) {
 	return a !== undefined && a !== null;
 }
 
-export function isStringNullOrEmpty(str) {
-    return str === null || str.match(/^ *$/) !== null;
+export function isStringNullOrEmpty(s) {
+    return s === null || s.match(/^ *$/) !== null;
 }

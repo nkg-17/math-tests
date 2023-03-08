@@ -19,10 +19,10 @@ import {
  } from './components'
 
 
-function Markdown({children, preview}) {
+function Markdown({children, preview, processors={}}) {
     return (
-        <div className={`w-full`}>
-            <MarkdownContext.Provider value={{preview: preview}}>
+        <div className={`w-full text-lg`}>
+            <MarkdownContext.Provider value={{preview: preview, processors: processors}}>
                 <RectMarkdown 
                 children={children} 
                 components={MarkdownComponents} />

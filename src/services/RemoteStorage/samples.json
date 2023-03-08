@@ -2,38 +2,26 @@
     "tests": {
         "1": {
             "id": "1",
-            "title": "Title 1",
-            "problem": { "text": "# h1\n\n## h2\n\n### h3\n\n#### h4\n\n##### h5\n\nnormal text\n\n*emphesized*\n\n**bold**\n\n***emphesized bold***\n\n[link](https://google.com)\n\n[*em link*](https://google.com)\n\nHere is `inline code`\n\n```\nmultiline\ncode\n```\n\n(paragraph)\n\n![image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png)\n\nNormal\nMultiline\nText\n\n> Blockquote\n\n> Multiline\n> \n> blockquote\n---\n(line break)\n\n1. Ordered\n2. List\n\n- Unordered\n- List\n\n<img style='height:50px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png'></img>\n" },
-            "tips": [],
-            "solution": { "text": "# solution title\nsolution text\n" },
-            "answer": "answer 1"
+            "problem": "# h1\n\n## h2\n\n### h3\n\n#### h4\n\n##### h5\n\nnormal text\n\n*emphesized*\n\n**bold**\n\n***emphesized bold***\n\n[link](https://google.com)\n\n[*em link*](https://google.com)\n\nHere is `inline code`\n\n```\nmultiline\ncode\n```\n\n(paragraph)\n\n![image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png)\n\nNormal\nMultiline\nText\n\n> Blockquote\n\n> Multiline\n> \n> blockquote\n---\n(line break)\n\n1. Ordered\n2. List\n\n- Unordered\n- List\n\n<img style='height:50px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/175px-Markdown-mark.svg.png'></img>\n",
+            "solution": "# solution title\nsolution text\n"
         },
         "2": {
             "id": "2",
-            "title": "Title 2",
             "preview": "https://picsum.photos/200/300",
-            "problem": { "text": "Sample text\n![](https://picsum.photos/100)" },
-            "tips": [ "Tip 1", "Tip 2" ],
-            "solution": { "text": "Solution\n![](https://picsum.photos/100)" },
-            "answer": "answer 2"
+            "problem": "Sample text\n![](https://picsum.photos/100)",
+            "solution": "Solution\n![](https://picsum.photos/100)"
         },
         "3": {
             "id": "3",
-            "title": "Title 3",
             "preview": "https://picsum.photos/200/300",
-            "problem": { "text": "Sample text\n![](https://picsum.photos/100)" },
-            "tips": [ "Tip 1", "Tip 2" ],
-            "solution": { "text": "Solution\n![](https://picsum.photos/100)" },
-            "answer": "answer 2"
+            "problem": "Sample text\n![](https://picsum.photos/100)",
+            "solution": "Solution\n![](https://picsum.photos/100)"
         },
         "4": {
             "id": "4",
-            "title": "Title 4",
             "preview": "https://picsum.photos/200/300",
-            "problem": { "text": "Sample text\n![](https://picsum.photos/100)" },
-            "tips": [ "Tip 1", "Tip 2" ],
-            "solution": { "text": "Solution\n![](https://picsum.photos/100)" },
-            "answer": "answer 2"
+            "problem": "Sample text\n![](https://picsum.photos/100)",
+            "solution": "Solution\n![](https://picsum.photos/100)"
         }
     },
     

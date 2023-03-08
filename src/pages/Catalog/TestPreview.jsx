@@ -1,9 +1,10 @@
-import { Markdown } from 'components/text';
+import { Markdown } from 'components/text'
+import { replaceTestImageURLs } from 'utils/helpers/markdown'
 
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-import './TestPreview.css';
+import './TestPreview.css'
 
 
 function TestPreview({test, ...props}) {
@@ -33,14 +34,16 @@ function TestPreview({test, ...props}) {
 				</div>
 				
 				<div className="flex flex-col gap-2 justify-center overflow-hidden select-none pointer-events-none">
-					<div 
+					{/*<div 
 					className="w-fit flex flex-col gap-2 font-normal capitalize text-slate-700 text-2xl truncate">
 						{test.title}
 						<span className="w-16 border-t-2 border-sky-300"></span>
-					</div>
+					</div>*/}
 					<div className="TestPreviewText">
-                        <Markdown preview baseColor="text-slate-600" baseFont="text-base">
-                            {test.problem.text}
+                        <Markdown 
+                        preview 
+                        processors={{img: replaceTestImageURLs(test.id)}}>
+                            {test.problem}
                         </Markdown>
 					</div>
 					<span className="font-light text-slate-500">Добавлено 2 Февраля 21:22</span>

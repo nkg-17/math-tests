@@ -42,9 +42,8 @@ function Previews(props) {
             .catch((e) => {
                 if (aborted)
                     return
-                
                 context.setTestListLoaded('failed', e)
-            })
+                })
 
         return () => aborted = true
     }, [])

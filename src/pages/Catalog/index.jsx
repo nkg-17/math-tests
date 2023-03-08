@@ -6,6 +6,7 @@ import Previews from './Previews';
 import Header from './Header';
 
 import { Loader } from 'components/utils'
+import { Alert } from 'components/utils'
 
 import { CatalogContext } from 'contexts';
 import { ArticleLayout } from 'components/layouts';
@@ -16,12 +17,14 @@ import wave from 'assets/wave.svg'
 function Catalog(props) {
     const [ state, setState ] = useState('loading')
     const tests = useRef(null)
+    const error = useRef(null)
 
 	const contextValue = {
 		tests: tests.current,
         setTestListLoaded: (status, data) => {
             if (status == 'failed') {
-                console.log('failed:', data)
+                error.current = data
+                console.log(`failed ${status}, ${data}`)
                 setState(() => status)
             }
             else {
@@ -31,6 +34,15 @@ function Catalog(props) {
         },
 		setNavOpaqueEvent: "setNavOpaque"
 	};
+
+    let contents = (<Previews />)
+    if (state == 'failed') {
+        contents = (
+            <Alert>
+                {JSON.stringify(error.current)}
+            </Alert>
+        )
+    }
 
 	const bgHeight = "13rem";
 	const bgColorStart = "rgb(59,130,246)";
@@ -51,7 +63,7 @@ function Catalog(props) {
                     src={wave} />
                     <Header />
                     <Search className="mb-20" />
-                    <Previews />
+                    {contents}
 				</ArticleLayout.Body>
 
 				<ArticleLayout.Footer />

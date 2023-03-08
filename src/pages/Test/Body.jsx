@@ -15,11 +15,11 @@ export default function Body({test, ...props}) {
         
         className="w-full" 
         {...props}>
-            <ArticleLayout.Heading 
+            {/*<ArticleLayout.Heading 
             color="border-blue-300" 
             sideNote="Добавлено 6 Февраля 14:49">
                 {test.title}
-            </ArticleLayout.Heading>
+            </ArticleLayout.Heading>*/}
             <Problem test={test} />
             <Solution test={test} />
         </motion.div>

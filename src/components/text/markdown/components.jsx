@@ -8,15 +8,17 @@ const previewText = "markdown-preview text-slate-500 not-italic font-normal"
 const normalTextColor = "text-slate-700"
 const baseTextSize = "text-lg"
 
-export function MdAnchor({preview, href, children, ...props}) {
+export function MdAnchor({preview, href, processors, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} ${baseTextSize}
+        : `${normalTextColor}
             bg-teal-50 
             border-b 
             border-sky-300 
             hover:bg-teal-100
             hover:border-sky-500`;
+
+    href = (processors.a) ? processors.a(href) : href
 
     return (preview)
         ? (
@@ -34,7 +36,7 @@ export function MdAnchor({preview, href, children, ...props}) {
 export function MdBlockquote({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} ${baseTextSize}
+        : `${normalTextColor}
             markdown-blockquote
             pl-6 my-4 pl-3 py-4
             border-l-8 border-gray-300 bg-gray-100`;
@@ -62,7 +64,7 @@ export function MdCode({preview, inline, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
         : (inline)
-            ? `${baseTextSize} p-1 rounded-md bg-gray-100 text-slate-700`
+            ? `p-1 rounded-md bg-gray-100 text-slate-700`
             : ``; // `pre` handles multiline code blocks
 
     return (
@@ -75,7 +77,7 @@ export function MdCode({preview, inline, children, ...props}) {
 export function MdEmphesized({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} ${baseTextSize}`;
+        : `${normalTextColor}`;
 
     return (
         <em className={classes}>
@@ -115,10 +117,12 @@ export function MdHorizontalRule({preview, children, ...props}) {
     )
 }
 
-export function MdImage({preview, src, children, ...props}) {
+export function MdImage({preview, src, processors, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `mx-auto my-2`;
+        : `mx-auto my-6 py-6 w-60`;
+
+    src = (processors.img) ? processors.img(src) : src
 
     return (
         <img src={src} className={classes}>
@@ -130,7 +134,7 @@ export function MdImage({preview, src, children, ...props}) {
 export function MdListItem({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `${normalTextColor} ${baseTextSize}`;
+        : `${normalTextColor}`;
 
     return (
         <li className={classes}>
@@ -142,7 +146,7 @@ export function MdListItem({preview, children, ...props}) {
 export function MdOrderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-decimal list-inside ${normalTextColor} ${baseTextSize}`;
+        : `list-decimal list-inside ${normalTextColor}`;
 
     return (
         <ol className={classes}>
@@ -154,7 +158,7 @@ export function MdOrderedList({preview, children, ...props}) {
 export function MdParagraph({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} ${baseTextSize} mb-1.5`;
+        : `${normalTextColor} mb-1.5`;
 
     return (
         <p className={classes}>
@@ -166,7 +170,7 @@ export function MdParagraph({preview, children, ...props}) {
 export function MdPreformatted({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : ` ${baseTextSize} 
+        : ` 
         overflow-scroll 
         my-2 px-4 py-3 
         rounded-md 
@@ -182,7 +186,7 @@ export function MdPreformatted({preview, children, ...props}) {
 export function MdStrong({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} ${baseTextSize}`;
+        : `${normalTextColor}`;
 
     return (
         <strong className={classes}>
@@ -194,7 +198,7 @@ export function MdStrong({preview, children, ...props}) {
 export function MdUnorderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-disc list-inside ${normalTextColor} ${baseTextSize}`;
+        : `list-disc list-inside ${normalTextColor}`;
 
     return (
         <ul className={classes}>
@@ -210,7 +214,7 @@ function ContextAwareComponent(component) {
         const context = useContext(MarkdownContext)
         return createElement(
             component, 
-            { preview: context.preview, ...props }, 
+            { ...context, ...props }, 
             children
         )
     }

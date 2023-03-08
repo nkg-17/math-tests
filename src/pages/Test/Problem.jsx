@@ -1,4 +1,5 @@
 import { Markdown } from 'components/text'
+import { replaceTestImageURLs } from 'utils/helpers/markdown'
 
 
 function Problem({className, style, test}) {
@@ -6,8 +7,8 @@ function Problem({className, style, test}) {
 		<div 
 		className={`w-full text-lg ${className}`}
 		style={style}>
-            <Markdown>
-                {test.problem.text}
+            <Markdown processors={{img: replaceTestImageURLs(test.id)}}>
+                {test.problem}
             </Markdown>
 		</div>
 	)
