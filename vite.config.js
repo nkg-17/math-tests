@@ -8,13 +8,5 @@ export default defineConfig(
         plugins: [
             react(), jsconfigPaths()
         ],
-        define: {
-            "global": {},
-        },
-        resolve: {
-            alias: {
-                'node-fetch': 'isomorphic-fetch',
-            },
-        },
     }
 )

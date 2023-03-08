@@ -1,25 +1,19 @@
-import { Octokit } from '@octokit/core';
 import { MathTest, verifyTest } from 'types/MathTest'
 
 
 const REPO_NAME = "math-tests-archive"
 const REPO_OWNER = "nkg-17"
 
-const octokit = new Octokit({})
-
 
 function getPath(path) {
-    return octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
-        owner: REPO_OWNER,
-        repo: REPO_NAME,
-        path: path
-    });
+    return fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`)
+        .then((r) => r.json())
 }
 
 function getFile(path) {
     return new Promise(async (resolve, reject) => {
         return getPath(path)
-            .then((resp) => fetch(resp.data.download_url))
+            .then((resp) => fetch(resp.download_url))
             .then((data) => data.text())
             .then((out) => resolve(out))
             .catch((e) => reject(`Файл '${path}' не найден. Ошибка: ${e}`))
@@ -29,7 +23,7 @@ function getFile(path) {
 function getFileList(path) {
     return new Promise(async (resolve, reject) => {
         return getPath(path)
-            .then((resp) => resp.data.map((e) => e.name))
+            .then((resp) => resp.map((e) => e.name))
             .then((out) => resolve(out))
             .catch((e) => reject(`${e}`))
     })
@@ -38,7 +32,7 @@ function getFileList(path) {
 function getFileURL(path) {
     return new Promise(async (resolve, reject) => {
         return getPath(path)
-            .then((resp) => resp.data.download_url)
+            .then((resp) => resp.download_url)
             .then((url) => resolve(url))
             .catch((e) => reject(`Файл '${path}' не найден. Ошибка: ${e}`))
     })
