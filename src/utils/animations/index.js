@@ -20,7 +20,7 @@ const AnimVariants = {
     // Duration
     quicker: { duration: 0.05 },
     normalTime: { duration: 0.1 },
-    longer: { duration: 0.3 },
+    longer: { duration: 0.2 },
 
     // Delay
     waitABit: { delay: 0.03 },
