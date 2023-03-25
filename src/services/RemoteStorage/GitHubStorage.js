@@ -11,21 +11,19 @@ function getPath(path) {
 }
 
 function getFile(path) {
-    return new Promise(async (resolve, reject) => {
-        return getPath(path)
-            .then((resp) => fetch(resp.download_url))
-            .then((data) => data.text())
-            .then((out) => resolve(out))
-            .catch((e) => reject(`Файл '${path}' не найден. Ошибка: ${e}`))
-    })
+    return getPath(path)
+        .then((resp) => fetch(resp.download_url))
+        .then((data) => data.text())
+        .then((out) => resolve(out))
 }
 
 function getFileList(path) {
+    console.log(path)
     return new Promise(async (resolve, reject) => {
         return getPath(path)
             .then((resp) => resp.map((e) => e.name))
             .then((out) => resolve(out))
-            .catch((e) => reject(`${e}`))
+            .catch((e) => { console.log(2);reject(`${e}`)})
     })
 }
 
@@ -34,7 +32,7 @@ function getFileURL(path) {
         return getPath(path)
             .then((resp) => resp.download_url)
             .then((url) => resolve(url))
-            .catch((e) => reject(`Файл '${path}' не найден. Ошибка: ${e}`))
+            .catch((e) => { console.log(3);reject(`Файл '${path}' не найден. Ошибка: ${e}`)})
     })
 }
 
