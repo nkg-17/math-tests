@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
-import { createRandomTest } from 'types/MathTest';
+import { createRandomTest } from 'types/MathTest'
+import { unwrapError } from 'utils/helpers/fields'
 
-import Search from './Search';
-import Previews from './Previews';
-import Header from './Header';
+import Search from './Search'
+import Previews from './Previews'
+import Header from './Header'
 
 import { Loader } from 'components/utils'
 import { Alert } from 'components/utils'
 
-import { CatalogContext } from 'contexts';
-import { ArticleLayout } from 'components/layouts';
+import { CatalogContext } from 'contexts'
+import { ArticleLayout } from 'components/layouts'
 
 import wave from 'assets/wave.svg'
 
@@ -24,7 +25,6 @@ function Catalog(props) {
         setTestListLoaded: (status, data) => {
             if (status == 'failed') {
                 error.current = data
-                console.log(`failed ${status}, ${data}`)
                 setState(() => status)
             }
             else {
@@ -33,21 +33,23 @@ function Catalog(props) {
             }
         },
 		setNavOpaqueEvent: "setNavOpaque"
-	};
+	}
 
     let contents = (<Previews />)
     if (state == 'failed') {
         contents = (
             <Alert>
-                {JSON.stringify(error.current)}
+                <ul>
+                    {unwrapError(error.current).map((e, i) => (<li key={i}>{e}</li>))}
+                </ul>
             </Alert>
         )
     }
 
-	const bgHeight = "13rem";
-	const bgColorStart = "rgb(59,130,246)";
-	const bgColorEnd = "#0099ff";
-	const bg = `linear-gradient(to bottom, ${bgColorStart} 0, ${bgColorEnd} ${bgHeight}, transparent ${bgHeight} 100%)`;
+	const bgHeight = "13rem"
+	const bgColorStart = "rgb(59,130,246)"
+	const bgColorEnd = "#0099ff"
+	const bg = `linear-gradient(to bottom, ${bgColorStart} 0, ${bgColorEnd} ${bgHeight}, transparent ${bgHeight} 100%)`
 
 	return (
 		<ArticleLayout style={{background:bg}}>

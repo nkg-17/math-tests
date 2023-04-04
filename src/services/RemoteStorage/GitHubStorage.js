@@ -8,40 +8,67 @@ const REPO_OWNER = "nkg-17"
 function getPath(path) {
     return fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`)
         .then((r) => r.json())
+        .then((d) => { if (Math.random() >= 0.5) throw new Error("Bingo!", {cause: Error("inner")}); return d; })
+        .catch((e) => {
+            throw new Error(
+                `Не удалось выполнить запрос к GitHub API: "${path}" (${e.message})`,
+                {cause: e}
+            )
+        })
 }
 
 function getFile(path) {
     return getPath(path)
         .then((resp) => fetch(resp.download_url))
         .then((data) => data.text())
-        .then((out) => resolve(out))
+        .catch((e) => {
+            throw new Error(
+                `Не удалось загрузить файл "${path}"`,
+                {cause: e}
+            )
+        })
 }
 
 function getFileList(path) {
-    console.log(path)
-    return new Promise(async (resolve, reject) => {
-        return getPath(path)
-            .then((resp) => resp.map((e) => e.name))
-            .then((out) => resolve(out))
-            .catch((e) => { console.log(2);reject(`${e}`)})
-    })
+    return getPath(path)
+        .then((resp) => resp.map((e) => e.name))
+        .catch((e) => {
+            throw new Error(
+                `Не удалось получить список файлов по пути "${path}"`,
+                {cause: e}
+            )
+        })
 }
 
 function getFileURL(path) {
-    return new Promise(async (resolve, reject) => {
-        return getPath(path)
-            .then((resp) => resp.download_url)
-            .then((url) => resolve(url))
-            .catch((e) => { console.log(3);reject(`Файл '${path}' не найден. Ошибка: ${e}`)})
-    })
+    return getPath(path)
+        .then((resp) => resp.download_url)
+        .catch((e) => {
+            throw new Error(
+                `Не удалось получить ссылку на файл "${path}"`,
+                {cause: e}
+            )
+        })
 }
 
 function getTestFile(id, filename) {
     return getFile(`tests/${id}/${filename}`)
+        .catch((e) => {
+            throw new Error(
+                `Не удалось загрузить файл "${filename}" теста "${id}"`,
+                {cause: e}
+            )
+        })
 }
 
 function getTestFileURL(id, filename) {
     return getFileURL(`tests/${id}/${filename}`)
+        .catch((e) => {
+            throw new Error(
+                `Не удалось получить ссылку на файл "${filename}" теста "${id}"`,
+                {cause: e}
+            )
+        })
 }
 
 function getTest(id) {
@@ -59,32 +86,19 @@ function getTest(id) {
         })
         const err = verifyTest(test)
         if (!err.ok)
-            throw new Error(err.message) 
+            throw new Error(
+                `Не удалось загрузить тест "${id}"`,
+                {cause: e}
+            ) 
         
         return test
     })
-
-    // return new Promise(async (resolve, reject) => {
-    //     let problem = await getTestFile(id, 'problem.md').catch((e) => reject(e))
-    //     let solution = await getTestFile(id, 'solution.md').catch((e) => reject(e))
-    //     const previewUrl = await getTestFileURL(id, 'preview.svg').catch((e) => reject(e))
-
-    //     if (!problem || !solution || !previewUrl)
-    //         return
-
-    //     let test = new MathTest({
-    //         id: id,
-    //         preview: previewUrl,
-    //         problem: problem,
-    //         solution: solution
-    //     })
-
-    //     const err = verifyTest(test)
-    //     if (!err.ok)
-    //         reject(`Test '${id}' is invalid: ${err.message}`) 
-
-    //     resolve(test)
-    // })
+    .catch((e) => {
+        throw new Error(
+            `Не удалось загрузить тест "${id}"`,
+            {cause: e}
+        )
+    })
 }
 
 function getTestIDList() {
@@ -96,12 +110,14 @@ function getTestIDList() {
         return 0;
     }
 
-    return new Promise(async (resolve, reject) => {
-        return getFileList(`tests`)
-            .then((ids) => ids.sort(sortDirNames))
-            .then((ids) => resolve(ids))
-            .catch((e) => reject(`Файл '${path}' не найден. Ошибка: ${e}`))
-    })
+    return getFileList(`tests`)
+        .then((ids) => ids.sort(sortDirNames))
+        .catch((e) => {
+            throw new Error(
+                `Не удалось получить список тестов`,
+                {cause: e}
+            )
+        })
 }
 
 

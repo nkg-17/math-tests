@@ -11,3 +11,10 @@ export function isNotNull(a) {
 export function isStringNullOrEmpty(s) {
     return s === null || s.match(/^ *$/) !== null;
 }
+
+export function unwrapError(e) {
+    let lst = [e]
+    for (e = e.cause; e; e = e.cause)
+        lst.push(e)
+    return lst
+}

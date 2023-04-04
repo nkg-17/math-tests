@@ -30,20 +30,21 @@ function Previews(props) {
                     return
                 
                 tests.current = []
-                for (let i = 0; i < ids.length; i++)
+                for (let i = 0; i < ids.length; i++) {
                     await RemoteStorage.getTest(ids[i]).then((test) => {
                         if (aborted)
                             return
-                
+
                         setProgress(() => (i + 1.0) / ids.length)
                         tests.current.push(test)
                     })
+                }
             })
             .catch((e) => {
                 if (aborted)
                     return
-                context.setTestListLoaded('failed', e)
-                })
+                context.setTestListLoaded('failed', e.message)
+            })
 
         return () => aborted = true
     }, [])
