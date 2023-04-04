@@ -5,6 +5,11 @@ const RoutePaths = {
 	Catalog: "/catalog",
 	Help: "/help",
 	Test: "/test/:id",
-};
+}
 
-export { RoutePaths };
+const Constants = {
+    GitHubRepoLink: "https://github.com/nkg-17/math-tests",
+    SupportLink: "https://t.me/xfnty",
+}
+
+export { RoutePaths, Constants }

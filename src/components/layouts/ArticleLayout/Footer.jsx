@@ -1,3 +1,4 @@
+import { Constants } from "utils/constants"
 
 
 function Footer({children, className, style}) {
@@ -7,13 +8,13 @@ function Footer({children, className, style}) {
 		style={style}>
 			<div className="flex flex-row divide-x divide-slate-500 items-center">
 				<a 
-				href={import.meta.env.VITE_URL_REPO} 
+				href={Constants.GitHubRepoLink} 
 				target="_blank" 
 				className="text-1xl px-2 font-normal hover:underline">
 					<span>Проект на GitHub</span><i className="ml-1 bi bi-github" />
 				</a>
 				<a 
-				href={import.meta.env.VITE_URL_CREATOR}
+				href={Constants.SupportLink}
 				target="_blank" 
 				className="text-1xl px-2 font-normal hover:underline">
 					<span>Сообщить об Ошибке</span><i className="ml-1 bi bi-telegram" />
