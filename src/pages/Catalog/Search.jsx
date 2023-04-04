@@ -1,7 +1,12 @@
+import { useContext } from 'react'
 import { InputField } from 'components/forms'
+import { CatalogContext } from 'contexts'
+import { publish } from 'utils/helpers/events'
 
 
 function Search({className, style}) {
+    const context = useContext(CatalogContext)
+
 	return (
 		<div 
 		className={`
@@ -12,7 +17,9 @@ function Search({className, style}) {
 		border rounded-lg ${className}`}
 		style={style}>
 			<span className="text-slate-700 select-none">Поиск по загаловку задачи</span>
-			<InputField placeholder="Поиск" />
+			<InputField 
+            placeholder="Поиск" 
+            onChange={(t) => publish(context.searchEvent, t)} />
 		</div>
 	);
 }

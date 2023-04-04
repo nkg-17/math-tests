@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { createRandomTest } from 'types/MathTest'
-import { unwrapError } from 'utils/helpers/fields'
 
 import Search from './Search'
 import Previews from './Previews'
@@ -32,7 +31,9 @@ function Catalog(props) {
                 setState(() => 'loaded')
             }
         },
-		setNavOpaqueEvent: "setNavOpaque"
+		setNavOpaqueEvent: "setNavOpaque",
+        searchText: "",
+        searchEvent: "SearchUpdate",
 	}
 
     let contents = (<Previews />)
