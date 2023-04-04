@@ -3,7 +3,7 @@
 .TestPreviewText {
 	/* https://tailwindcss.com/docs/font-size */
 	--line-height: 24px;
-	--line-count: 4;
+	--line-count: 6;
 	
 	height: 	calc(calc(var(--line-height) * var(--line-count)));
 	max-height: calc(calc(var(--line-height) * var(--line-count)));
