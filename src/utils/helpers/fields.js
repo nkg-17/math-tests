@@ -13,8 +13,10 @@ export function isStringNullOrEmpty(s) {
 }
 
 export function unwrapError(e) {
-    let lst = [e]
-    for (e = e.cause; e; e = e.cause)
+    let lst = []
+    while (e) {
         lst.push(e)
+        e = e.cause
+    }
     return lst
 }

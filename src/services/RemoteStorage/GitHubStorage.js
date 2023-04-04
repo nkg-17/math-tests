@@ -8,10 +8,10 @@ const REPO_OWNER = "nkg-17"
 function getPath(path) {
     return fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`)
         .then((r) => r.json())
-        .then((d) => { if (Math.random() >= 0.5) throw new Error("Bingo!", {cause: Error("inner")}); return d; })
+        .then((d) => { if (Math.random() >= 0.5) throw new Error("Bingo!"); return d; })
         .catch((e) => {
             throw new Error(
-                `Не удалось выполнить запрос к GitHub API: "${path}" (${e.message})`,
+                `Не удалось выполнить запрос к GitHub API: "${path}"`,
                 {cause: e}
             )
         })

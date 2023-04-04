@@ -2,10 +2,20 @@ import { motion } from 'framer-motion'
 import { AnimVariants as variants } from 'utils/animations'
 
 import { Link } from 'react-router-dom'
-import { RoutePaths } from 'utils/constants'
+import { unwrapError } from 'utils/helpers/fields'
+import { RoutePaths, Constants } from 'utils/constants'
 
 
-export default function Alert({children, className, style}) {
+export default function Alert({children, className, style, error=null}) {
+    let errorList = null
+    if (error != null) {
+        errorList = (
+            <ul className="mb-2">
+                {unwrapError(error).map((e, i) => (<li key={i}>{e.message}</li>))}
+            </ul>
+        )
+    }
+
     return (
         <motion.div
         initial={variants.hidden}
@@ -25,12 +35,13 @@ export default function Alert({children, className, style}) {
                 Ошибка
             </h1>
             <div className="mb-3">
+                {errorList}
                 {children}
             </div>
             <hr className="border-rose-400 mb-3" />
             <div className="flex flex-row gap-3">
                 <a 
-                href={import.meta.env.VITE_URL_CREATOR}
+                href={Constants.SupportLink}
                 target="_blank" 
                 className="text-1xl font-normal underline">
                     <span>Сообщить об Ошибке</span>

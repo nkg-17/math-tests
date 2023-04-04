@@ -38,11 +38,7 @@ function Catalog(props) {
     let contents = (<Previews />)
     if (state == 'failed') {
         contents = (
-            <Alert>
-                <ul>
-                    {unwrapError(error.current).map((e, i) => (<li key={i}>{e}</li>))}
-                </ul>
-            </Alert>
+            <Alert error={error.current} />
         )
     }
 

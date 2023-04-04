@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 
+import { unwrapError } from 'utils/helpers/fields'
+
 import { createRandomTest } from 'types/MathTest'
 import { RemoteStorage } from 'services'
 
@@ -42,7 +44,6 @@ function Test() {
             .catch((e) => {
                 if (aborted)
                     return
-                
                 error.current = e
                 setState(() => 'failed')
             })
@@ -53,8 +54,9 @@ function Test() {
     let contents = null
     if (state == 'loaded')
         contents = (<Body test={context.test} key={1} />)
-    else if (state == 'failed')
-        contents = (<Alert key={2}>{error.current}</Alert>)
+    else if (state == 'failed') {
+        contents = (<Alert key={2} error={error.current} />)
+    }
     else
         contents = (<Loader className="my-auto mx-auto" key={2} />)
 
