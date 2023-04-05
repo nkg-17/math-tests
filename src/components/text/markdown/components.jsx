@@ -120,7 +120,7 @@ export function MdHorizontalRule({preview, children, ...props}) {
 export function MdImage({preview, src, processors, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `mx-auto my-6 py-6 w-60`;
+        : `mx-auto my-6 py-6 markdown-img`;
 
     src = (processors.img) ? processors.img(src) : src
 
@@ -146,7 +146,7 @@ export function MdListItem({preview, children, ...props}) {
 export function MdOrderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-decimal list-inside ${normalTextColor}`;
+        : `list-decimal list-inside ${normalTextColor} markdown-ol`;
 
     return (
         <ol className={classes}>

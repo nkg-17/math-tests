@@ -17,9 +17,9 @@ function Solution({test}) {
         transition={variants.normalTime}
         className="w-full" 
         key="openedSolution">
-			{/*<ArticleLayout.Heading color="border-emerald-400">
+			<ArticleLayout.Heading color="border-emerald-400">
                 Решение
-            </ArticleLayout.Heading>*/}
+            </ArticleLayout.Heading>
 
 			<div className={`w-full`}>
                 <Markdown processors={{img: replaceTestImageURLs(test.id)}}>

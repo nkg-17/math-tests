@@ -5,8 +5,18 @@
     font-size: 16px;
 }
 
+.markdown-ol {
+    /* Probably (?) needed for TestPreview */
+    margin-left: 1rem;
+}
+
 .markdown-blockquote p {
     margin-bottom: 0;
 
     @apply text-slate-500;
+}
+
+.markdown-img {
+    min-width: 300px;
+    min-height: 300px;
 }
