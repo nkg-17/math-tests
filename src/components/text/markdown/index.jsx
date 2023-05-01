@@ -1,5 +1,7 @@
 import { MarkdownContext } from 'contexts'
 import RectMarkdown from 'react-markdown'
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
 import { 
     MarkdownComponents,
     MdUnorderedList,
@@ -18,6 +20,8 @@ import {
     MdAnchor
  } from './components'
 
+ import 'katex/dist/katex.min.css'
+
 
 function Markdown({children, preview, processors={}}) {
     return (
@@ -25,7 +29,10 @@ function Markdown({children, preview, processors={}}) {
             <MarkdownContext.Provider value={{preview: preview, processors: processors}}>
                 <RectMarkdown 
                 children={children} 
-                components={MarkdownComponents} />
+                components={MarkdownComponents}
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                />
             </MarkdownContext.Provider>
         </div>
     )
