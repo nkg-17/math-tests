@@ -7,6 +7,8 @@ import './components.css'
 const previewText = "markdown-preview text-slate-500 not-italic font-normal"
 const normalTextColor = "text-slate-700"
 const baseTextSize = "text-lg"
+const defaultMarginBottom = "mb-4"
+const defaultMarginY = "my-4"
 
 export function MdAnchor({preview, href, processors, children, ...props}) {
     const classes = (preview) 
@@ -38,7 +40,7 @@ export function MdBlockquote({preview, children, ...props}) {
         ? `${previewText}`
         : `${normalTextColor}
             markdown-blockquote
-            pl-6 my-4 pl-3 py-4
+            pl-6 ${defaultMarginY} pl-3 py-4
             border-l-8 border-gray-300 bg-gray-100`;
 
     return (
@@ -64,7 +66,7 @@ export function MdCode({preview, inline, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
         : (inline)
-            ? `p-1 rounded-md bg-gray-100 text-slate-700`
+            ? `p-0.5 rounded-md bg-gray-200 text-slate-700 whitespace-nowrap`
             : ``; // `pre` handles multiline code blocks
 
     return (
@@ -88,10 +90,10 @@ export function MdEmphesized({preview, children, ...props}) {
 
 export function MdHeading({preview, level, children, ...props}) {
     const headingLevel = {
-        1: "text-4xl mb-4",
-        2: "text-3xl mb-3",
-        3: "text-2xl mb-2",
-        4: "text-xl mb-1",
+        1: "text-4xl mb-5",
+        2: `text-3xl ${defaultMarginBottom}`,
+        3: "text-2xl mb-3",
+        4: "text-xl mb-2",
         5: baseTextSize,
     };
     const classes = (preview) 
@@ -108,7 +110,7 @@ export function MdHeading({preview, level, children, ...props}) {
 export function MdHorizontalRule({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `my-6 border-gray-300`;
+        : `${defaultMarginY} border-gray-300`;
 
     return (
         <hr className={classes}>
@@ -120,7 +122,7 @@ export function MdHorizontalRule({preview, children, ...props}) {
 export function MdImage({preview, src, processors, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `mx-auto my-6 py-6 markdown-img`;
+        : `mx-auto ${defaultMarginY} py-6 markdown-img`;
 
     src = (processors.img) ? processors.img(src) : src
 
@@ -146,7 +148,7 @@ export function MdListItem({preview, children, ...props}) {
 export function MdOrderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-decimal list-inside ${normalTextColor} markdown-ol`;
+        : `list-decimal list-inside ${normalTextColor} markdown-ol ${defaultMarginBottom}`;
 
     return (
         <ol className={classes}>
@@ -158,7 +160,7 @@ export function MdOrderedList({preview, children, ...props}) {
 export function MdParagraph({preview, children, ...props}) {
     const classes = (preview) 
         ? `${previewText}`
-        : `${normalTextColor} mb-1.5`;
+        : `${normalTextColor} ${defaultMarginBottom}`;
 
     return (
         <p className={classes}>
@@ -174,7 +176,7 @@ export function MdPreformatted({preview, children, ...props}) {
         overflow-scroll 
         my-2 px-4 py-3 
         rounded-md 
-        bg-gray-100 text-slate-700`;
+        bg-gray-200 text-slate-700`;
 
     return (
         <pre className={classes}>
@@ -198,7 +200,7 @@ export function MdStrong({preview, children, ...props}) {
 export function MdUnorderedList({preview, children, ...props}) {
     const classes = (preview) 
         ? `hidden`
-        : `list-disc list-inside ${normalTextColor}`;
+        : `list-disc list-inside ${normalTextColor} ${defaultMarginBottom}`;
 
     return (
         <ul className={classes}>

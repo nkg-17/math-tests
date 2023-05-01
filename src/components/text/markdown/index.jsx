@@ -25,7 +25,7 @@ import {
 
 function Markdown({children, preview, processors={}}) {
     return (
-        <div className={`w-full text-lg`}>
+        <div className={`w-full text-lg markdown`}>
             <MarkdownContext.Provider value={{preview: preview, processors: processors}}>
                 <RectMarkdown 
                 children={children} 

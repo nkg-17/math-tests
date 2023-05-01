@@ -3,16 +3,24 @@ import { MdPreformatted } from 'components/text/markdown';
 import { ArticleLayout } from 'components/layouts';
 
 
+const intro =
+`
+Текст условия и задачи записывается в формате 
+[Markdown документа](https://www.markdownguide.org/cheat-sheet/#basic-syntax).
+
+*Внимание:* ***Все*** ссылки на изображения в тексте задачи должны содержать 
+**лишь имя изображения**, находящегося в одной папке с файлами задачи (\`tests/1/\`). 
+Например ссылка на картинку 
+\`tests/1/problem-1.jpg\` должна иметь вид \`![](problem-1.jpg)\`.
+`
+
 const sampleMarkdown =
 `
-TODO: Перенести в репозиторий как отдельный Markdown документ.
 # Заголовок 1
 ## Заголовок 2
 ### Заголовок 3
 #### Заголовок 4
 ##### Заголовок 5
-
-[Ссылка на документацию](https://www.markdownguide.org/cheat-sheet/#basic-syntax)
 
 Обычный текст
 без переноса. 
@@ -23,6 +31,8 @@ TODO: Перенести в репозиторий как отдельный Mar
 **Жирный шрифт**
 
 ***Шрифт с обоими стилями***
+
+---
 
 > Цитата
 > без переноса
@@ -69,6 +79,12 @@ function Help(props) {
 				<ArticleLayout.Heading color="border-blue-300">
                     Форматирование страницы
                 </ArticleLayout.Heading>
+
+                <div className="w-full mb-12">
+                    <Markdown preview={false}>
+                        {intro}
+                    </Markdown>
+                </div>
 
                 <div className="w-full grid grid-cols-2 gap-4">
                     <div className="">

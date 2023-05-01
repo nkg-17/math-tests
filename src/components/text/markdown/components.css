@@ -10,6 +10,12 @@
     margin-left: 1rem;
 }
 
+.markdown .math {
+    position: relative;
+    z-index: -1;
+    @apply text-slate-900;
+}
+
 .markdown-blockquote p {
     margin-bottom: 0;
 
